@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: burlywood;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+
+  font-size: 20px;
+}
+
+.menu__link {
+  &.active {
+    color: orange;
+  }
+}

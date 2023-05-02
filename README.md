@@ -1,2 +1,0 @@
-# graphiql-app
-GraphiQL Application

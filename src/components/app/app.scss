@@ -1,0 +1,15 @@
+#root {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 100px auto 75px;
+}
+
+.title-page {
+  font-size: 36px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
