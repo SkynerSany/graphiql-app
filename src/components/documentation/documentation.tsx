@@ -1,30 +1,65 @@
 import './documentation.scss';
 import { useState } from 'react';
-import { getData } from './documentation.data.js';
 import { v1 } from 'uuid';
+import Input from './components/input.js';
+import Path from './components/path.js';
+import { IPath, IRoot, TRootFunction } from './documentation.interfaces.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateNode } from '../../store/reducers.js';
+import { RootState } from '../../store/store.js';
 
 export default function Documentation(): JSX.Element {
-  const doc = getData();
-  const [fields, setFields] = useState(doc.fields);
+  const [path, setPath] = useState<IPath[]>([]);
+  const curentNode = useSelector((state: RootState) => state.store.node);
+  const dispatch = useDispatch();
 
-  function nextField(field: string): void {
-    if (typeof fields[field] !== 'function') return;
-
-    setFields(fields[field]().fields);
+  function nextField(fieldName: string): void {
+    if (
+      typeof curentNode.fields[fieldName] !== 'function' &&
+      typeof curentNode.fields[fieldName] !== 'object'
+    )
+      return;
+    if (typeof curentNode.fields[fieldName] === 'function')
+      curentNode.fields[fieldName] = (curentNode.fields[fieldName] as TRootFunction)();
+    path.push({
+      fieldName,
+      field: curentNode.fields[fieldName] as IRoot,
+    });
+    setPath(path);
+    dispatch(updateNode(curentNode.fields[fieldName] as IRoot));
   }
 
-  function fieldIsFunction(field) {
-    return typeof field === 'function' ? field().constructor.name : field;
+  function updateField(e: React.ChangeEvent<HTMLInputElement>, fieldName: string) {
+    curentNode.checked[fieldName] = e.target.checked;
+    dispatch(updateNode(curentNode));
+  }
+
+  function setPrevField() {
+    if (!curentNode.parent) return;
+    path.pop();
+    setPath(path);
+    dispatch(updateNode(curentNode.parent as IRoot));
   }
 
   return (
     <section className="documentation">
+      <Path path={path} setPath={setPath} />
+      <button onClick={() => setPrevField()} className="documentation__prevButton">
+        {'<'}
+      </button>
       <ul className="documentation__list">
-        {Object.entries(fields).map((field) => {
+        {Object.keys(curentNode.fields).map((fieldName) => {
           return (
-            <li onClick={() => nextField(field[0])} key={v1()}>{`${field[0]}: ${fieldIsFunction(
-              field[1]
-            )}`}</li>
+            <li key={v1()}>
+              <Input
+                updateField={updateField}
+                fieldName={fieldName}
+                checked={curentNode.checked[fieldName]}
+              />
+              <p
+                onClick={() => nextField(fieldName)}
+              >{`${fieldName}: ${curentNode.fieldsType[fieldName]}`}</p>
+            </li>
           );
         })}
       </ul>
