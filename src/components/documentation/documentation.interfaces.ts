@@ -1,24 +1,32 @@
-export type TAllNodes = IRoot | object;
-export type TRootFunction = () => TAllNodes;
-export interface IRoot {
+export type TAllNodes = INode | object | string;
+export type TNodeFunction = (parent?: INode) => TAllNodes;
+
+export interface IBaseNode {
+  node: () => INode;
+  checked: boolean;
+  type: string;
+}
+export interface INode {
   fields: {
-    [key: string]: TRootFunction | TAllNodes;
-  };
-  fieldsType: {
-    [key: string]: string;
-  };
-  checked: {
-    [key: string]: boolean;
+    [key: string]: {
+      node: TNodeFunction | TAllNodes;
+      checked: boolean;
+      type: string;
+    };
   };
   arguments?: {
-    [key: string]: () => TAllNodes | TAllNodes;
+    [key: string]: {
+      node: TNodeFunction | TAllNodes;
+      checked: boolean;
+      type: string;
+    };
   };
   parent?: TAllNodes;
 }
 
 export interface IPath {
   fieldName: string;
-  field: IRoot;
+  field: TAllNodes;
 }
 
 export interface IInputProps {
@@ -30,4 +38,11 @@ export interface IInputProps {
 export interface IPathProps {
   path: IPath[];
   setPath: React.Dispatch<React.SetStateAction<IPath[]>>;
+}
+
+export interface IListProps {
+  curentNode: INode;
+  path: IPath[];
+  setPath: React.Dispatch<React.SetStateAction<IPath[]>>;
+  type: 'fields' | 'arguments';
 }
