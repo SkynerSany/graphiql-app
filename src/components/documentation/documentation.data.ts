@@ -1,23 +1,66 @@
-import { IRoot, TAllNodes } from './documentation.interfaces';
+import { INode, TAllNodes } from './documentation.interfaces';
+
+class BaseNode {
+  node!: () => INode;
+  checked!: boolean;
+  type!: string;
+}
+
+class Node {
+  parent: TAllNodes;
+  constructor(parent: TAllNodes) {
+    this.parent = parent;
+  }
+}
+
+class NoChildNode {
+  node = 'String';
+  checked = false;
+  type = 'String';
+}
+
+class InfoNode extends BaseNode {
+  constructor(parent: INode) {
+    super();
+    this.node = () => new Info(parent);
+    this.checked = false;
+    this.type = 'Info';
+  }
+}
+
+class CharacterNode extends BaseNode {
+  constructor(parent: INode) {
+    super();
+    this.node = () => new Character(parent);
+    this.checked = false;
+    this.type = 'Character';
+  }
+}
+
+class LocationNode extends BaseNode {
+  constructor(parent: INode) {
+    super();
+    this.node = () => new Location(parent);
+    this.checked = false;
+    this.type = 'Location';
+  }
+}
+
+class EpisodeNode extends BaseNode {
+  constructor(parent: INode) {
+    super();
+    this.node = () => new Episode(parent);
+    this.checked = false;
+    this.type = 'Episode';
+  }
+}
 
 class Info {
   fields = {
-    count: 'Int',
-    next: 'Int',
-    pages: 'Int',
-    prev: 'Int',
-  };
-  checked = {
-    count: false,
-    next: false,
-    pages: false,
-    prev: false,
-  };
-  fieldsType = {
-    count: 'Int',
-    next: 'Int',
-    pages: 'Int',
-    prev: 'Int',
+    count: new NoChildNode(),
+    next: new NoChildNode(),
+    pages: new NoChildNode(),
+    prev: new NoChildNode(),
   };
 
   parent: TAllNodes;
@@ -26,437 +69,212 @@ class Info {
   }
 }
 
-class Character {
+class Character extends Node {
   arguments = {
-    id: 'ID',
-  };
-  checked = {
-    created: false,
-    episode: false,
-    gender: false,
-    id: false,
-    image: false,
-    location: false,
-    name: false,
-    origin: false,
-    species: false,
-    status: false,
-    type: false,
+    id: new NoChildNode(),
   };
   fields = {
-    created: 'String',
-    episode: () => new Episode(this),
-    gender: 'String',
-    id: 'ID',
-    image: 'String',
-    location: () => new Location(this),
-    name: 'String',
-    origin: () => new Location(this),
-    species: 'String',
-    status: 'String',
-    type: 'String',
+    created: new NoChildNode(),
+    episode: new EpisodeNode(this),
+    gender: new NoChildNode(),
+    id: new NoChildNode(),
+    image: new NoChildNode(),
+    location: new LocationNode(this),
+    name: new NoChildNode(),
+    origin: new LocationNode(this),
+    species: new NoChildNode(),
+    status: new NoChildNode(),
+    type: new NoChildNode(),
   };
-  fieldsType = {
-    created: 'String',
-    episode: 'Episode',
-    gender: 'String',
-    id: 'ID',
-    image: 'String',
-    location: 'Location',
-    name: 'String',
-    origin: 'Location',
-    species: 'String',
-    status: 'String',
-    type: 'String',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class Episode {
+class Episode extends Node {
   fields = {
-    air_date: 'String',
-    characters: () => new Character(this),
-    created: 'String',
-    episode: 'String',
-    id: 'ID',
-    name: 'String',
+    air_date: new NoChildNode(),
+    characters: new CharacterNode(this),
+    created: new NoChildNode(),
+    episode: new NoChildNode(),
+    id: new NoChildNode(),
+    name: new NoChildNode(),
   };
-  checked = {
-    air_date: false,
-    characters: false,
-    created: false,
-    episode: false,
-    id: false,
-    name: false,
-  };
-  fieldsType = {
-    air_date: 'String',
-    characters: 'Character',
-    created: 'String',
-    episode: 'String',
-    id: 'ID',
-    name: 'String',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class Location {
+class Location extends Node {
   fields = {
-    created: 'String',
-    dimension: 'String',
-    id: 'ID',
-    name: 'String',
-    residents: () => new Character(this),
-    type: 'String',
+    created: new NoChildNode(),
+    dimension: new NoChildNode(),
+    id: new NoChildNode(),
+    name: new NoChildNode(),
+    residents: new CharacterNode(this),
+    type: new NoChildNode(),
   };
-  checked = {
-    created: false,
-    dimension: false,
-    id: false,
-    name: false,
-    residents: false,
-    type: false,
-  };
-  fieldsType = {
-    created: 'String',
-    dimension: 'String',
-    id: 'ID',
-    name: 'String',
-    residents: 'Character',
-    type: 'String',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class FilterEpisode {
+class FilterEpisode extends Node {
   fields = {
-    episode: 'String',
-    name: 'String',
+    episode: new NoChildNode(),
+    name: new NoChildNode(),
   };
-  checked = {
-    episode: false,
-    name: false,
-  };
-  fieldsType = {
-    episode: 'String',
-    name: 'String',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class Episodes {
+class Episodes extends Node {
   arguments = {
-    filter: () => new FilterEpisode(this),
-    page: 'Int',
+    filter: {
+      node: () => new FilterEpisode(this),
+      checked: false,
+      type: 'FilterEpisode',
+    },
+    page: new NoChildNode(),
   };
   fields = {
-    info: () => new Info(this),
-    results: () => new Episode(this),
+    info: new InfoNode(this),
+    results: new EpisodeNode(this),
   };
-  checked = {
-    info: false,
-    results: false,
-  };
-  fieldsType = {
-    info: 'Info',
-    results: 'Episode',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class EpisodesByIds {
+class EpisodesByIds extends Node {
   arguments = {
-    ids: 'ID',
+    ids: new NoChildNode(),
   };
   fields = {
-    air_date: 'String',
-    characters: () => new Character(this),
-    created: 'String',
-    episode: 'String',
-    id: 'ID',
-    name: 'String',
+    air_date: new NoChildNode(),
+    characters: new CharacterNode(this),
+    created: new NoChildNode(),
+    episode: new NoChildNode(),
+    id: new NoChildNode(),
+    name: new NoChildNode(),
   };
-  checked = {
-    air_date: false,
-    characters: false,
-    created: false,
-    episode: false,
-    id: false,
-    name: false,
-  };
-  fieldsType = {
-    air_date: 'String',
-    characters: 'Character',
-    created: 'String',
-    episode: 'String',
-    id: 'ID',
-    name: 'String',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class FilterLocation {
+class FilterLocation extends Node {
   fields = {
-    dimension: 'String',
-    name: 'String',
-    type: 'String',
+    dimension: new NoChildNode(),
+    name: new NoChildNode(),
+    type: new NoChildNode(),
   };
-  checked = {
-    dimension: false,
-    name: false,
-    type: false,
-  };
-  fieldsType = {
-    dimension: 'String',
-    name: 'String',
-    type: 'String',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class Locations {
+class Locations extends Node {
   arguments = {
-    filter: () => new FilterLocation(this),
-    page: 'Int',
+    filter: {
+      node: () => new FilterLocation(this),
+      checked: false,
+      type: 'FilterLocation',
+    },
+    page: new NoChildNode(),
   };
   fields = {
-    info: () => new Info(this),
-    results: () => new Location(this),
+    info: new InfoNode(this),
+    results: new LocationNode(this),
   };
-  checked = {
-    info: false,
-    results: false,
-  };
-  fieldsType = {
-    info: () => 'Info',
-    results: () => 'Location',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class LocationsByIds {
+class LocationsByIds extends Node {
   arguments = {
-    ids: 'ID',
+    ids: new NoChildNode(),
   };
   fields = {
-    created: 'String',
-    dimension: 'String',
-    id: 'ID',
-    name: 'String',
-    residents: () => new Character(this),
-    type: 'String',
+    created: new NoChildNode(),
+    dimension: new NoChildNode(),
+    id: new NoChildNode(),
+    name: new NoChildNode(),
+    residents: new CharacterNode(this),
+    type: new NoChildNode(),
   };
-  checked = {
-    created: false,
-    dimension: false,
-    id: false,
-    name: false,
-    residents: false,
-    type: false,
-  };
-  fieldsType = {
-    created: 'String',
-    dimension: 'String',
-    id: 'ID',
-    name: 'String',
-    residents: 'Character',
-    type: 'String',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class FilterCharacter {
+class FilterCharacter extends Node {
   fields = {
-    gender: 'String',
-    name: 'String',
-    species: 'String',
-    status: 'String',
-    type: 'String',
+    gender: new NoChildNode(),
+    name: new NoChildNode(),
+    species: new NoChildNode(),
+    status: new NoChildNode(),
+    type: new NoChildNode(),
   };
-  checked = {
-    gender: false,
-    name: false,
-    species: false,
-    status: false,
-    type: false,
-  };
-  fieldsType = {
-    gender: 'String',
-    name: 'String',
-    species: 'String',
-    status: 'String',
-    type: 'String',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class Characters {
+class Characters extends Node {
   arguments = {
-    filter: () => new FilterCharacter(this),
-    page: 'Int',
+    filter: {
+      node: () => new FilterCharacter(this),
+      checked: false,
+      type: 'FilterCharacter',
+    },
+    page: new NoChildNode(),
   };
   fields = {
-    info: () => new Info(this),
-    results: () => new Character(this),
+    info: new InfoNode(this),
+    results: new CharacterNode(this),
   };
-  checked = {
-    info: false,
-    results: false,
-  };
-  fieldsType = {
-    info: 'Info',
-    results: 'Info',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class CharactersByIds {
+class CharactersByIds extends Node {
   arguments = {
-    ids: 'ID',
+    ids: new NoChildNode(),
   };
   fields = {
-    created: 'String',
-    episode: () => new Episode(this),
-    gender: 'String',
-    id: 'ID',
-    image: 'String',
-    location: () => new Location(this),
-    name: 'String',
-    origin: () => new Location(this),
-    species: 'String',
-    status: 'String',
-    type: 'String',
+    created: new NoChildNode(),
+    episode: new EpisodeNode(this),
+    gender: new NoChildNode(),
+    id: new NoChildNode(),
+    image: new NoChildNode(),
+    location: new LocationNode(this),
+    name: new NoChildNode(),
+    origin: new LocationNode(this),
+    species: new NoChildNode(),
+    status: new NoChildNode(),
+    type: new NoChildNode(),
   };
-  checked = {
-    created: false,
-    episode: false,
-    gender: false,
-    id: false,
-    image: false,
-    location: false,
-    name: false,
-    origin: false,
-    species: false,
-    status: false,
-    type: false,
-  };
-  fieldsType = {
-    created: 'String',
-    episode: 'Episode',
-    gender: 'String',
-    id: 'ID',
-    image: 'String',
-    location: 'Location',
-    name: 'String',
-    origin: 'Location',
-    species: 'String',
-    status: 'String',
-    type: 'String',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
-class Query {
+class Query extends Node {
   fields = {
-    character: () => new Character(this),
-    characters: () => new Characters(this),
-    charactersByIds: () => new CharactersByIds(this),
-    episode: () => new Episode(this),
-    episodes: () => new Episodes(this),
-    episodesByIds: () => new EpisodesByIds(this),
-    location: () => new Location(this),
-    locations: () => new Locations(this),
-    locationsByIds: () => new LocationsByIds(this),
+    character: new CharacterNode(this),
+    characters: {
+      node: () => new Characters(this),
+      checked: false,
+      type: 'Characters',
+    },
+    charactersByIds: {
+      node: () => new CharactersByIds(this),
+      checked: false,
+      type: 'CharactersByIds',
+    },
+    episode: new EpisodeNode(this),
+    episodes: {
+      node: () => new Episodes(this),
+      checked: false,
+      type: 'Episodes',
+    },
+    episodesByIds: {
+      node: () => new EpisodesByIds(this),
+      checked: false,
+      type: 'EpisodesByIds',
+    },
+    location: new LocationNode(this),
+    locations: {
+      node: () => new Locations(this),
+      checked: false,
+      type: 'Locations',
+    },
+    locationsByIds: {
+      node: () => new LocationsByIds(this),
+      checked: false,
+      type: 'LocationsByIds',
+    },
   };
-  checked = {
-    character: false,
-    characters: false,
-    charactersByIds: false,
-    episode: false,
-    episodes: false,
-    episodesByIds: false,
-    location: false,
-    locations: false,
-    locationsByIds: false,
-  };
-  fieldsType = {
-    character: 'Character',
-    characters: 'Characters',
-    charactersByIds: 'CharactersByIds',
-    episode: 'Episode',
-    episodes: 'Episodes',
-    episodesByIds: 'EpisodesByIds',
-    location: 'Location',
-    locations: 'Locations',
-    locationsByIds: 'LocationsByIds',
-  };
-
-  parent: TAllNodes;
-  constructor(parent: TAllNodes) {
-    this.parent = parent;
-  }
 }
 
 class Root {
   fields = {
-    query: () => new Query(this),
-  };
-  checked = {
-    query: false,
-  };
-  fieldsType = {
-    query: 'Query',
+    query: {
+      node: () => new Query(this),
+      checked: false,
+      type: 'Query',
+    },
   };
 }
 
-export function getDocumentationInitialData(): IRoot {
+export function getDocumentationInitialData(): INode {
   return new Root();
 }

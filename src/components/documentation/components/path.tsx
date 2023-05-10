@@ -1,5 +1,5 @@
 import { v1 } from 'uuid';
-import { IPath, IPathProps } from '../documentation.interfaces';
+import { INode, IPath, IPathProps } from '../documentation.interfaces';
 import { useDispatch } from 'react-redux';
 import { updateNode } from '../../../store/reducers';
 
@@ -9,7 +9,7 @@ export default function Path({ path, setPath }: IPathProps) {
   function changePath(field: IPath) {
     const newPath = path.slice(0, path.indexOf(field) + 1);
     setPath(newPath);
-    dispatch(updateNode(field.field));
+    dispatch(updateNode(field.field as INode));
   }
 
   return (

@@ -1,9 +1,9 @@
 import { combineReducers, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IRoot } from '../components/documentation/documentation.interfaces';
+import { INode } from '../components/documentation/documentation.interfaces';
 import { getDocumentationInitialData } from '../components/documentation/documentation.data';
 
 interface IState {
-  node: IRoot;
+  node: INode;
 }
 
 const initialState: IState = {
@@ -14,7 +14,7 @@ const documentationSlice = createSlice({
   name: 'documentation',
   initialState,
   reducers: {
-    updateNode: (state, action: PayloadAction<IRoot>) => {
+    updateNode: (state, action: PayloadAction<INode>) => {
       state.node = action.payload;
     },
   },
