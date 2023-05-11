@@ -1,14 +1,20 @@
 {
   "ru": {
-    "welcome": "Приветствие",
+    "welcome": "Добро пожаловать",
     "login": "Вход",
+    "logout": "Выйти",
     "error": "404",
-    "editor": "Редактор"
+    "editor": "Редактор",
+    "register": "Регистрация",
+    "main": "Главная"
   },
   "en": {
     "welcome": "Welcome",
     "login": "Login",
+    "logout": "Logout",
     "error": "404",
-    "editor": "Editor"
+    "editor": "Editor",
+    "register": "Register",
+    "main": "Main"
   }
 }

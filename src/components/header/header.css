@@ -2,21 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-
-  background-color: #d4dca9;
-  border-bottom: 1px solid #bf9d7a;
+  background-color: burlywood;
 }
+
 .header__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 95%;
 }
+
 .header__buttons {
   width: 185px;
   text-align: end;
 }
+
 .header__btn {
   margin-left: 5px;
   padding: 6px;
@@ -28,21 +28,10 @@
 .menu {
   display: flex;
   gap: 20px;
-
   width: 355px;
-
   font-size: 20px;
 }
 
-.menu__link {
-  &.active {
-    font-weight: 700;
-    color: #8b6b4c;
-  }
-}
-
-.sign-out {
-  position: absolute;
-  right: 30px;
-  top: 10px;
+.menu__link.active {
+  color: orange;
 }
