@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: center;
 
-  background-color: burlywood;
+  background-color: #D4DCA9;
+  border-bottom: 1px solid #BF9D7A;
 }
 
 .menu {
@@ -15,6 +16,7 @@
 
 .menu__link {
   &.active {
-    color: orange;
+    font-weight: 700;
+    color: #8b6b4c;
   }
 }

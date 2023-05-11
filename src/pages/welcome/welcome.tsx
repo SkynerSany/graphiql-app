@@ -12,8 +12,10 @@ export default function Welcome() {
         <h1 className="title-page">{text.title}</h1>
 
         <div className="wrapper_center">
-          <MyButton content={'Sign In'} />
-          <MyButton content={'Sign Up'} />
+          <div className="d-f gap20">
+            <MyButton content={'Sign In'} />
+            <MyButton content={'Sign Up'} />
+          </div>
         </div>
       </div>
     </article>
