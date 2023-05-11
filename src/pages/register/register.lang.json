@@ -1,0 +1,21 @@
+{
+  "ru": {
+    "mail": "Адрес почты",
+    "fullName": "Имя",
+    "password": "Пароль",
+    "register": "Регистрируйся",
+    "haveAccount": "Уже есть аккаунт?",
+    "now": "сейчас",
+    "login": "Войди"
+
+  },
+  "en": {
+    "mail": "E-mail Address",
+    "fullName": "Full Name",
+    "password": "Password",
+    "register": "Register",
+    "haveAccount": "Already have an account?",
+    "now": "now",
+    "login": "Login"
+  }
+}

@@ -5,14 +5,16 @@ import Welcome from '../../pages/welcome/welcome';
 import Editor from '../../pages/editor/editor';
 import ErrorPage from '../../pages/error/error';
 import Login from '../../pages/login/login';
+import Register from '../../pages/register/register';
 
 export default function App(): JSX.Element {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Welcome />} />
-        <Route path="editor" element={<Editor />} />
         <Route path="login" element={<Login />} />
+        <Route path="editor" element={<Editor />} />
+        <Route path="register" element={<Register />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

@@ -4,10 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  a {
-    cursor: pointer;
-    text-decoration: underline;
-  }
+}
+.login a {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .login__container {
@@ -40,4 +40,4 @@
 
 .login div {
   margin-top: 7px;
-}
+}/*# sourceMappingURL=login.css.map */

@@ -1,8 +1,20 @@
 {
   "ru": {
-    "title": "Страница входа"
+    "login": "Войти",
+    "forgot": "Забыли пароль",
+    "haveAccount": "Нет аккаунта?",
+    "mail": "Адрес почты",
+    "password": "Пароль",
+    "register": "Регистрируйся",
+    "now": "сейчас"
   },
   "en": {
-    "title": "Login page"
+    "login": "Login",
+    "forgot": "Forgot Password",
+    "haveAccount": "Don't have an account?",
+    "mail": "E-mail Address",
+    "password": "Password",
+    "register": "Register",
+    "now": "now"
   }
 }

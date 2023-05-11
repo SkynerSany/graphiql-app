@@ -1,14 +1,52 @@
 import './login.scss';
 import lang from './login.lang.json';
 
-export default function Login() {
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth, logInWithEmailAndPassword } from '../../authentication/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import './login.scss';
+
+function Login() {
   const text = lang.en;
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading) {
+      <h3>Loading...</h3>;
+    }
+    if (user) navigate('/editor');
+  }, [user, loading]);
 
   return (
-    <article className="login-page">
-      <div className="wrapper">
-        <h1 className="title-page">{text.title}</h1>
+    <div className="login">
+      <div className="login__container">
+        <input
+          type="text"
+          className="login__textBox"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder={text.mail}
+        />
+        <input
+          type="password"
+          className="login__textBox"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder={text.password}
+        />
+        <button className="login__btn" onClick={() => logInWithEmailAndPassword(email, password)}>
+          {text.login}
+        </button>
+
+        <div>
+          {text.haveAccount} <Link to="/register">{text.register}</Link> {text.now}.
+        </div>
       </div>
-    </article>
+    </div>
   );
 }
+export default Login;
