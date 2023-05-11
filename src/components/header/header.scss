@@ -2,9 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 
-  background-color: #D4DCA9;
-  border-bottom: 1px solid #BF9D7A;
+  background-color: #d4dca9;
+  border-bottom: 1px solid #bf9d7a;
 }
 
 .menu {
@@ -19,4 +20,10 @@
     font-weight: 700;
     color: #8b6b4c;
   }
+}
+
+.sign-out {
+  position: absolute;
+  right: 30px;
+  top: 10px;
 }

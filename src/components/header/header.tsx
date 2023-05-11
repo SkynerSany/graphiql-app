@@ -1,6 +1,8 @@
-import './header.scss';
 import lang from './header.lang.json';
 import { NavLink } from 'react-router-dom';
+import MyButton from '../myButton/myButton';
+
+import './header.scss';
 
 export default function Header() {
   const text = lang.en;
@@ -20,6 +22,7 @@ export default function Header() {
         <NavLink to="/error" className="menu__link">
           {text.error}
         </NavLink>
+        <MyButton content={'Sign Out'} className={'sign-out'} />
       </div>
     </header>
   );
