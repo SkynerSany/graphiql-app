@@ -1,16 +1,11 @@
 import './editor.scss';
 import lang from './editor.lang.json';
-// import { auth } from '../../authentication/firebase';
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useIsAuthorized } from '../../hooks/useIsAuthorized';
 
 export default function Editor() {
-  const { user, loading, error, navigate } = useIsAuthorized();
+  const { user, loading, navigate } = useIsAuthorized();
   const text = lang.en;
-  // const [user, loading, error] = useAuthState(auth);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     if (loading) {

@@ -6,7 +6,7 @@ import { useIsAuthorized } from '../../hooks/useIsAuthorized';
 
 export default function Header() {
   const text = lang.en;
-  const { user, loading, error, navigate } = useIsAuthorized();
+  const { user, navigate } = useIsAuthorized();
   const loginOutAndGoWelcome = () => {
     logout();
     navigate('/');
