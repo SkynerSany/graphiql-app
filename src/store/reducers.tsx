@@ -1,28 +1,30 @@
 import { combineReducers, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { INode } from '../components/documentation/documentation.interfaces';
+import { getDocumentationInitialData } from '../components/documentation/documentation.data';
 
 interface IState {
-  search: string;
+  node: INode;
 }
 
 const initialState: IState = {
-  search: '',
+  node: getDocumentationInitialData(),
 };
 
-const appSlice = createSlice({
-  name: 'appStore',
+const documentationSlice = createSlice({
+  name: 'documentation',
   initialState,
   reducers: {
-    setSearch: (state, action: PayloadAction<string>) => {
-      state.search = action.payload;
+    updateNode: (state, action: PayloadAction<INode>) => {
+      state.node = action.payload;
     },
   },
 });
 
-const { actions, reducer } = appSlice;
+const { actions, reducer } = documentationSlice;
 
 const rootReducer = combineReducers({
   store: reducer,
 });
 
-export const { setSearch } = actions;
+export const { updateNode } = actions;
 export default rootReducer;

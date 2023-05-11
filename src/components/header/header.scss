@@ -7,10 +7,27 @@
   background-color: #d4dca9;
   border-bottom: 1px solid #bf9d7a;
 }
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+}
+.header__buttons {
+  width: 185px;
+  text-align: end;
+}
+.header__btn {
+  margin-left: 5px;
+  padding: 6px;
+  border: none;
+}
 
 .menu {
   display: flex;
   gap: 20px;
+
+  width: 355px;
 
   font-size: 20px;
 }
