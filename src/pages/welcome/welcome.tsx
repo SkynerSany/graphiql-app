@@ -7,7 +7,7 @@ export default function Welcome() {
   const text = lang.en;
 
   return (
-    <article className="welcome-page">
+    <div className="welcome-page">
       <div className="wrapper">
         <h1 className="title-page">{text.title}</h1>
 
@@ -18,6 +18,6 @@ export default function Welcome() {
           </div>
         </div>
       </div>
-    </article>
+    </div>
   );
 }

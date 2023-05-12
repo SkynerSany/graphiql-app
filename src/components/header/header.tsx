@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import lang from './header.lang.json';
 import { NavLink } from 'react-router-dom';
 import MyButton from '../myButton/myButton';
@@ -14,8 +15,23 @@ export default function Header() {
     navigate('/');
   };
 
+  const [sticky, setSticky] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('scroll', isSticky);
+    return () => {
+      window.removeEventListener('scroll', isSticky);
+    };
+  }, []);
+
+  const isSticky = () => {
+    setSticky(window.scrollY >= 30 ? 'header_sticky' : '');
+  };
+
+  const classes = `header ${sticky}`;
+
   return (
-    <header className="header">
+    <header className={classes}>
       <div className="header__wrapper">
         <div className="menu">
           <NavLink to="/" className="menu__link">
