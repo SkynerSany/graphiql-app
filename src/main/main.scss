@@ -86,7 +86,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 300vh;
+}
+
+#root>div {
+  min-height: calc(100vh - 147px);
 }
 
 h1 {
