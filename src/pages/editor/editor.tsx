@@ -1,11 +1,14 @@
 import './editor.scss';
-import lang from './editor.lang.json';
+// import lang from './editor.lang.json';
 import { useEffect } from 'react';
 import { useIsAuthorized } from '../../hooks/useIsAuthorized';
+import Editor from '../../components/editor/editor';
+import Documentation from '../../components/documentation/documentation';
+import Response from '../../components/response/response';
 
-export default function Editor() {
+export default function EditorPage() {
   const { user, loading, navigate } = useIsAuthorized();
-  const text = lang.en;
+  // const text = lang.en;
 
   useEffect(() => {
     if (loading) {
@@ -17,7 +20,9 @@ export default function Editor() {
   return (
     <article className="editor-page">
       <div className="wrapper">
-        <h1 className="title-page">{text.title}</h1>
+        <Documentation />
+        <Editor />
+        <Response />
       </div>
     </article>
   );

@@ -28,6 +28,7 @@
 .documentation__path {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
   list-style-type: none;
 
   font-size: 20px;
