@@ -1,4 +1,8 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,7 +10,16 @@
 
   background-color: #d4dca9;
   border-bottom: 1px solid #bf9d7a;
+
+  transition: all 0.3s ease-in-out;
 }
+
+.header_sticky {
+  padding: 15px 20px;
+
+  background-color: #a8cff3;
+}
+
 .header__wrapper {
   display: flex;
   align-items: center;
@@ -24,7 +37,7 @@
 }
 
 .header__btn:hover {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .menu {
