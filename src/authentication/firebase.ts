@@ -27,8 +27,8 @@ const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
-    // store.dispatch(openErrorModal());
-    store.dispatch(onRedirect());
+    store.dispatch(openErrorModal());
+    setTimeout(() => store.dispatch(onRedirect()), 2000);
 
     // alert(text.wrongData);
     if (err instanceof Error) console.log(err.message);
