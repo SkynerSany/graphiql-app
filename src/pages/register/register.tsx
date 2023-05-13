@@ -16,7 +16,7 @@ interface IFormValues {
 }
 
 function Register() {
-  const text = lang.en;
+  const text = lang.ru;
 
   const { user, loading, navigate } = useIsAuthorized();
 
@@ -48,12 +48,12 @@ function Register() {
               className="register__textBox"
               placeholder={text.name}
               {...register('name', {
-                required: 'The field is required',
-                minLength: { value: 3, message: 'Minimum input length 3 characters' },
-                maxLength: { value: 10, message: 'Maximum input length 10 characters' },
+                required: text.fieldRequired,
+                minLength: { value: 3, message: text.minLength3 },
+                maxLength: { value: 10, message: text.maxLength10 },
                 pattern: {
                   value: /[A-Z]{1}/,
-                  message: 'Please start with a capital letter',
+                  message: text.startCapitalLetter,
                 },
               })}
             />
@@ -66,12 +66,12 @@ function Register() {
               className="register__textBox"
               placeholder={text.mail}
               {...register('email', {
-                required: 'The field is required',
-                minLength: { value: 5, message: 'Minimum input length 5 characters' },
-                maxLength: { value: 20, message: 'Maximum input length 20 characters' },
+                required: text.fieldRequired,
+                minLength: { value: 5, message: text.minLength5 },
+                maxLength: { value: 20, message: text.maxLength20 },
                 pattern: {
                   value: /[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+/,
-                  message: 'Incorrect email',
+                  message: text.incorrectEmail,
                 },
               })}
             />
@@ -86,12 +86,12 @@ function Register() {
               className="register__textBox"
               placeholder={text.password}
               {...register('password', {
-                required: 'The field is required',
-                minLength: { value: 8, message: 'Minimum input length 8 characters' },
-                maxLength: { value: 20, message: 'Maximum input length 20 characters' },
+                required: text.fieldRequired,
+                minLength: { value: 8, message: text.minLength8 },
+                maxLength: { value: 20, message: text.maxLength20 },
                 pattern: {
                   value: /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[^\w\s]).{1,}/,
-                  message: 'At least 1 letter, 1 number, 1 special symbol',
+                  message: text.atLeast,
                 },
               })}
             />
