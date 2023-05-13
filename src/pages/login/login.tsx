@@ -6,6 +6,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth, logInWithEmailAndPassword } from '../../authentication/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './login.scss';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { ModalAlert } from '../../components/modalAlert/ModalAlert';
 
 function Login() {
   const text = lang.en;
@@ -14,18 +17,21 @@ function Login() {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
+  const isOpenErrorModal = useSelector((state: RootState) => state.store.errorModal);
+  const redirectToWelcom = useSelector((state: RootState) => state.store.redirect);
+
   useEffect(() => {
-    if (loading) {
-      <h3>Loading...</h3>;
-    }
+    if (loading) return;
     if (user) navigate('/editor');
-  }, [user, loading]);
+    if (redirectToWelcom) navigate('/');
+  }, [user, loading, redirectToWelcom]);
 
   return (
     <div className="login">
+      {isOpenErrorModal && <ModalAlert text={text.checkData} delay={2000} />}
       <div className="login__container">
         <input
-          type="text"
+          type="email"
           className="login__textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}

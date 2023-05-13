@@ -2,9 +2,14 @@ import lang from './welcome.lang.json';
 import MyButton from '../../components/myButton/myButton';
 
 import './welcome.scss';
+import { useDispatch } from 'react-redux';
+import { offRedirect } from '../../store/reducers';
 
 export default function Welcome() {
   const text = lang.en;
+
+  const dispatch = useDispatch();
+  dispatch(offRedirect());
 
   return (
     <article className="welcome-page">
