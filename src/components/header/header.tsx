@@ -1,10 +1,10 @@
 import lang from './header.lang.json';
 import { NavLink } from 'react-router-dom';
 import MyButton from '../myButton/myButton';
-
-import './header.scss';
 import { logout } from '../../authentication/firebase';
 import { useIsAuthorized } from '../../hooks/useIsAuthorized';
+
+import './header.scss';
 
 export default function Header() {
   const text = lang.en;
@@ -36,9 +36,6 @@ export default function Header() {
               {text.main}
             </NavLink>
           )}
-          {/* <NavLink to="/error" className="menu__link">
-            {text.error}
-          </NavLink> */}
         </div>
 
         <div className="header__buttons">
@@ -48,9 +45,11 @@ export default function Header() {
             </NavLink>
           )}
           {user && (
-            <button className="header__btn" onClick={loginOutAndGoWelcome}>
-              {text.logout}
-            </button>
+            <MyButton
+              content={text.logout}
+              className={'header__btn'}
+              event={loginOutAndGoWelcome}
+            />
           )}
           {!user && (
             <NavLink to="/register" className="header__btn">

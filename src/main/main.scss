@@ -95,10 +95,11 @@ h1 {
   text-align: center;
 }
 
-button {
-  padding: 12px 24px;
+button,
+.header__btn {
+  padding: 10px 20px;
 
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   font-family: inherit;
   color: #ffffff;
