@@ -3,9 +3,30 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  width: 100%;
+  padding: 40px;
 }
 
 .welcome-page {
   height: 100%;
   padding: 20px;
+}
+
+.welcome-page__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.welcome-page__content_item {
+  width: 32%;
+  padding: 20px;
+
+  background-color: #EBF2EA;
+  box-shadow: 5px 5px 10px #D4DCA9, -5px -5px 10px #EBF2EA;
+
+  cursor: pointer;
+  transition: .2s ease-in-out;
 }
