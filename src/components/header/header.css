@@ -1,23 +1,8 @@
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-
-  background-color: #d4dca9;
-  border-bottom: 1px solid #bf9d7a;
-
-  transition: all 0.3s ease-in-out;
-}
-
-.header_sticky {
-  padding: 15px 20px;
-
-  background-color: #a8cff3;
+  background-color: burlywood;
 }
 
 .header__wrapper {
@@ -26,10 +11,12 @@
   justify-content: space-between;
   width: 95%;
 }
+
 .header__buttons {
   width: 185px;
   text-align: end;
 }
+
 .header__btn {
   margin-left: 5px;
   padding: 6px;
@@ -38,28 +25,13 @@
   background-color: #4285f4;
 }
 
-.header__btn:hover {
-  color: #ffffff;
-}
-
 .menu {
   display: flex;
   gap: 20px;
-
   width: 355px;
-
   font-size: 20px;
 }
 
-.menu__link {
-  &.active {
-    font-weight: 700;
-    color: #8b6b4c;
-  }
-}
-
-.sign-out {
-  position: absolute;
-  right: 30px;
-  top: 10px;
+.menu__link.active {
+  color: orange;
 }
