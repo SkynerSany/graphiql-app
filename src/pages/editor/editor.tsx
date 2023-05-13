@@ -8,9 +8,7 @@ export default function Editor() {
   const text = lang.en;
 
   useEffect(() => {
-    if (loading) {
-      <h3>Loading...</h3>;
-    }
+    if (loading) return;
     if (!user) navigate('/login');
   }, [user, loading]);
 

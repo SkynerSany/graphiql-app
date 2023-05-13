@@ -6,7 +6,8 @@
     "mail": "Адрес почты",
     "password": "Пароль",
     "register": "Регистрируйся",
-    "now": "сейчас"
+    "now": "сейчас",
+    "checkData": "Пожалуйста проверьте данные"
   },
   "en": {
     "login": "Login",
@@ -15,6 +16,7 @@
     "mail": "E-mail Address",
     "password": "Password",
     "register": "Register",
-    "now": "now"
+    "now": "now",
+    "checkData": "Please check the data"
   }
 }
