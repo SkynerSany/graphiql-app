@@ -10,11 +10,11 @@
   },
   "en": {
     "welcome": "Welcome",
-    "login": "Login",
+    "login": "Sing In",
     "logout": "Logout",
     "error": "404",
     "editor": "Editor",
-    "register": "Register",
+    "register": "Sing Up",
     "main": "Main"
   }
 }
