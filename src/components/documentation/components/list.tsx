@@ -39,9 +39,9 @@ export default function List({ curentNode, path, setPath, type }: IListProps): J
                 fieldName={fieldName}
                 checked={curentNode[type]![fieldName].checked}
               /> */}
-              <p onClick={() => nextField(fieldName)}>{`${fieldName}: ${
+              <button onClick={() => nextField(fieldName)}>{`${fieldName}: ${
                 curentNode[type]![fieldName].type
-              }`}</p>
+              }`}</button>
             </li>
           );
         })}

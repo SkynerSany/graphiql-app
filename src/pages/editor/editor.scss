@@ -2,5 +2,6 @@
   .wrapper {
     display: grid;
     grid-template-columns: 300px auto auto;
+    gap: 10px;
   }
 }
