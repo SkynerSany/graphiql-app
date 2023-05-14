@@ -1,0 +1,10 @@
+{
+  "ru": {
+    "title": "Ответ",
+    "response_placeholder": "Тут будет ответ на ваш запрос"
+  },
+  "en": {
+    "title": "Response",
+    "response_placeholder": "Here is the answer to your request!"
+  }
+}

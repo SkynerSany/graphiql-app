@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+
+  font-size: 18px;
+
+  background-color: #80add7;
+
+  p,
+  a {
+    display: flex;
+    justify-content: center;
+    width: 33%;
+  }
+
+  a {
+    justify-content: right;
+  }
+
+  .github-link {
+    justify-content: left;
+  }
+}

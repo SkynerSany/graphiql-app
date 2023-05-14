@@ -1,0 +1,10 @@
+{
+  "ru": {
+    "title": "Редактор",
+    "response_placeholder": "Напишите ваш запрос"
+  },
+  "en": {
+    "title": "Editor",
+    "response_placeholder": "Write your request"
+  }
+}

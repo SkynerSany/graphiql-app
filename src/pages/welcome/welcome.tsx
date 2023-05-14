@@ -1,5 +1,4 @@
 import lang from './welcome.lang.json';
-import MyButton from '../../components/myButton/myButton';
 
 import './welcome.scss';
 import { useDispatch } from 'react-redux';
