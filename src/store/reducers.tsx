@@ -5,7 +5,9 @@ import { IDocumentationState, IResponseState } from './store.interfaces';
 
 const initialDocumentationState: IDocumentationState = {
   node: getDocumentationInitialData(),
-};
+  errorModal: false,
+  redirect: false,
+}
 
 const initialResponseState: IResponseState = {
   response: '',
@@ -17,6 +19,18 @@ const documentationSlice = createSlice({
   reducers: {
     updateNode: (state, action: PayloadAction<INode>) => {
       state.node = action.payload;
+    },
+    openErrorModal: (state) => {
+      state.errorModal = true;
+    },
+    closeErrorModal: (state) => {
+      state.errorModal = false;
+    },
+    onRedirect: (state) => {
+      state.redirect = true;
+    },
+    offRedirect: (state) => {
+      state.redirect = false;
     },
   },
 });
@@ -38,6 +52,7 @@ const rootReducer = combineReducers({
   response: responseSlice.reducer,
 });
 
-export const { updateNode } = actions;
 export const { setResponse } = responseSlice.actions;
+export const { updateNode, openErrorModal, closeErrorModal, onRedirect, offRedirect } = actions;
+
 export default rootReducer;

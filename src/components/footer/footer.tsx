@@ -1,10 +1,6 @@
 import './footer.scss';
-// import lang from './footer.lang.json';
-import React from 'react';
 
 export default function Footer() {
-  // const text = lang.en;
-
   return (
     <footer className="footer">
       <p className=" d-f gap20">

@@ -6,6 +6,8 @@ import {
   signOut,
 } from 'firebase/auth';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import store from '../store/store';
+import { onRedirect, openErrorModal } from '../store/reducers';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDIXJ5YT7hoNbBFqK3TBcV41-TzIO-7n7w',
@@ -25,8 +27,11 @@ const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
-    // console.error(err);
-    if (err instanceof Error) alert(err.message);
+    store.dispatch(openErrorModal());
+    setTimeout(() => store.dispatch(onRedirect()), 2000);
+
+    // alert(text.wrongData);
+    if (err instanceof Error) console.log(err.message);
   }
 };
 
@@ -41,8 +46,10 @@ const registerWithEmailAndPassword = async (name: string, email: string, passwor
       email,
     });
   } catch (err) {
-    // console.error(err);
-    if (err instanceof Error) alert(err.message);
+    store.dispatch(openErrorModal());
+
+    // alert(text.wrongData);
+    if (err instanceof Error) console.log(err.message);
   }
 };
 
