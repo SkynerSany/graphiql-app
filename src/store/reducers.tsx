@@ -7,7 +7,7 @@ const initialDocumentationState: IDocumentationState = {
   node: getDocumentationInitialData(),
   errorModal: false,
   redirect: false,
-}
+};
 
 const initialResponseState: IResponseState = {
   response: '',
