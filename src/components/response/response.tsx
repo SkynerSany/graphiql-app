@@ -13,7 +13,9 @@ export default function Response() {
 
   return (
     <section className="response">
-      <h3>{text.title}</h3>
+      <div className="editor__header">
+        <h3 className="h-mb20">{text.title}</h3>
+      </div>
       <AceEditor
         placeholder={text.response_placeholder}
         mode="json"

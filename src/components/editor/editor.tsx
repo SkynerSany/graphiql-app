@@ -40,8 +40,10 @@ export default function Editor() {
 
   return (
     <section className="editor">
-      <h3>{text.title}</h3>
-      <button onClick={() => getresponse()}>Send</button>
+      <div className="editor__header">
+        <h3 className="h-mb20">{text.title}</h3>
+        <button onClick={() => getresponse()}>Send</button>
+      </div>
       <AceEditor
         placeholder={text.response_placeholder}
         mode="json"
@@ -57,6 +59,7 @@ export default function Editor() {
           showLineNumbers: true,
           tabSize: 2,
         }}
+        style={{ width: 'auto' }}
       />
     </section>
   );
