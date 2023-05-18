@@ -31,6 +31,7 @@ export default function Response() {
           showLineNumbers: true,
           tabSize: 2,
         }}
+        style={{ width: 'auto' }}
       />
     </section>
   );
