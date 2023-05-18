@@ -1,7 +1,15 @@
 .editor-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   .wrapper {
     display: grid;
-    grid-template-columns: 300px auto auto;
+    grid-template-columns: 300px 250px auto auto;
     gap: 10px;
+    align-items: start;
+    grid-template-areas: 'documentation variables editor response';
+
+    width: 95%;
   }
 }

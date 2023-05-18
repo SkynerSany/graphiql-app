@@ -5,6 +5,7 @@ import { useIsAuthorized } from '../../hooks/useIsAuthorized';
 import Editor from '../../components/editor/editor';
 import Documentation from '../../components/documentation/documentation';
 import Response from '../../components/response/response';
+import Variables from '../../components/variables/variables';
 
 export default function EditorPage() {
   const { user, loading, navigate } = useIsAuthorized();
@@ -21,6 +22,7 @@ export default function EditorPage() {
         <Documentation />
         <Editor />
         <Response />
+        <Variables />
       </div>
     </article>
   );
