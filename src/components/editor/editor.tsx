@@ -53,8 +53,10 @@ export default function Editor() {
 
   return (
     <section className="editor">
-      <h3>{text.title}</h3>
-      <button onClick={() => getResponse()}>{text.send}</button>
+      <div className="editor__header">
+        <h3 className="h-mb20">{text.title}</h3>
+        <button onClick={() => getResponse()}>{text.send}</button>
+      </div>
       <AceEditor
         placeholder={text.response_placeholder}
         mode="json"

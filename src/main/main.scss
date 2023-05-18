@@ -89,7 +89,8 @@ body {
 }
 
 #root > div {
-  min-height: calc(100vh - 147px);
+  min-height: calc(100vh - 160px);
+  padding: 30px;
 }
 
 h1 {
@@ -175,4 +176,12 @@ h2 {
 
 .f-bold {
   font-weight: 700;
+}
+
+.h-mb20 {
+  margin-bottom: 20px;
+}
+
+.f-green {
+  color: #0abda0;
 }

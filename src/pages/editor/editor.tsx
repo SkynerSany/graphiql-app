@@ -17,13 +17,13 @@ export default function EditorPage() {
   }, [user, loading]);
 
   return (
-    <article className="editor-page">
+    <div className="editor-page">
       <div className="wrapper">
         <Documentation />
         <Editor />
         <Response />
         <Variables />
       </div>
-    </article>
+    </div>
   );
 }
