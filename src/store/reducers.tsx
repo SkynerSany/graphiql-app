@@ -35,6 +35,20 @@ const documentationSlice = createSlice({
   },
 });
 
+const initialVariablesState = {
+  variables: '',
+};
+
+const variablesSlice = createSlice({
+  name: 'variables',
+  initialState: initialVariablesState,
+  reducers: {
+    setVariables: (state, action: PayloadAction<string>) => {
+      state.variables = action.payload;
+    },
+  },
+});
+
 const responseSlice = createSlice({
   name: 'response',
   initialState: initialResponseState,
@@ -50,9 +64,11 @@ const { actions, reducer } = documentationSlice;
 const rootReducer = combineReducers({
   store: reducer,
   response: responseSlice.reducer,
+  variables: variablesSlice.reducer,
 });
 
 export const { setResponse } = responseSlice.actions;
+export const { setVariables } = variablesSlice.actions;
 export const { updateNode, openErrorModal, closeErrorModal, onRedirect, offRedirect } = actions;
 
 export default rootReducer;

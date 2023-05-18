@@ -1,0 +1,15 @@
+{
+  "ru": {
+    "title": "Переменные",
+    "close": "Закрыть",
+    "placeholder": "Введите переменные",
+    "save": "Сохранить"
+
+  },
+  "en": {
+    "title": "Variables",
+    "close": "Сlose",
+    "placeholder": "Enter variables",
+    "save": "Save"
+  }
+}

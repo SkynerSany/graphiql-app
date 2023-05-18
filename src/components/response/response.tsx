@@ -13,7 +13,7 @@ export default function Response() {
 
   return (
     <section className="response">
-      <h3>{text.title}</h3>
+      <h3 style={{ marginTop: '42px' }}>{text.title}</h3>
       <AceEditor
         placeholder={text.response_placeholder}
         mode="json"
@@ -29,6 +29,7 @@ export default function Response() {
           showLineNumbers: true,
           tabSize: 2,
         }}
+        style={{ width: 'auto' }}
       />
     </section>
   );
