@@ -1,5 +1,5 @@
-import './variables.scss';
-import lang from './variables.lang.json';
+import './headers.scss';
+import lang from './headers.lang.json';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import js_beautify from 'js-beautify';
@@ -7,44 +7,44 @@ import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-kuroir';
-import { setVariables } from '../../store/reducers';
+import { setHeadersStore } from '../../store/reducers';
 
-export default function Variables() {
+export default function Headers() {
   const text = lang.ru;
   const dispatch = useDispatch();
-  const [variable, setVariable] = useState(
-    js_beautify(`{"status": "dead", "name": "rick"}`, { indent_size: 2 })
+  const [headers, setHeaders] = useState(
+    js_beautify(`{"Content-type": "application/json"}`, { indent_size: 2 })
   );
 
-  function getVariables() {
-    dispatch(setVariables(variable));
+  function getHeaders() {
+    dispatch(setHeadersStore(headers));
   }
 
   function onChange(newValue: string) {
-    setVariable(newValue);
+    setHeaders(newValue);
   }
 
   return (
-    <section className="variables">
+    <section className="headers">
       <h3>{text.title}</h3>
       <button
         onClick={() => {
-          getVariables();
+          getHeaders();
         }}
       >
-        {text.addVariables}
+        {text.addHeaders}
       </button>
       <AceEditor
         placeholder={text.placeholder}
         mode="json"
         theme="kuroir"
-        name="variables"
+        name="headers"
         onChange={onChange}
         fontSize={14}
         showPrintMargin={true}
         showGutter={true}
         highlightActiveLine={true}
-        value={variable}
+        value={headers}
         setOptions={{
           showLineNumbers: true,
           tabSize: 2,

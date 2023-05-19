@@ -5,10 +5,10 @@
 
   .wrapper {
     display: grid;
-    grid-template-columns: 300px 250px auto auto;
+    grid-template-columns: 280px 1.5fr 1fr 2fr 2fr;
     gap: 10px;
     align-items: start;
-    grid-template-areas: 'documentation variables editor response';
+    grid-template-areas: 'documentation headers variables editor response';
 
     width: 95%;
   }
