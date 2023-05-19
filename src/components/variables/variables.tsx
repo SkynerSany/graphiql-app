@@ -12,13 +12,13 @@ import { setVariables } from '../../store/reducers';
 export default function Variables() {
   const text = lang.ru;
   const dispatch = useDispatch();
-  const [variable, setVariable] = useState(
-    js_beautify(`{status: "alive", name: "sanchez"}`, { indent_size: 2 })
-  );
+  const [variable, setVariable] = useState(`{
+    "status": "dead",
+    "name": "rick"
+  }`);
 
   function getVariables() {
-    // console.log(JSON.stringify(variable));
-    dispatch(setVariables(JSON.stringify(variable)));
+    dispatch(setVariables(variable));
   }
 
   function onChange(newValue: string) {

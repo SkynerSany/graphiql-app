@@ -36,7 +36,7 @@ const documentationSlice = createSlice({
 });
 
 const initialVariablesState = {
-  variables: '',
+  variables: `{}`,
 };
 
 const variablesSlice = createSlice({

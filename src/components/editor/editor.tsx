@@ -13,7 +13,8 @@ import { RootState } from '../../store/store';
 export default function Editor() {
   const text = lang.ru;
   const dispatch = useDispatch();
-  const variables = useSelector((state: RootState) => state.variables.variables);
+  const variablesString = useSelector((state: RootState) => state.variables.variables);
+  const variables = JSON.parse(variablesString);
 
   const [query, setQuery] = useState(
     js_beautify(
@@ -32,7 +33,7 @@ export default function Editor() {
     const url = 'https://rickandmortyapi.com/graphql';
 
     const makeRequest = (query: string) => {
-      console.log('query/var=', query, '=', JSON.parse(variables));
+      console.log('query/var=', query, '=', variables);
       return fetch(url, {
         method: 'POST',
         headers: {
