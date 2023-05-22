@@ -10,7 +10,7 @@ import { setResponse } from '../../store/reducers';
 
 export default function Response() {
   const dispatch = useDispatch();
-  const text = lang.en;
+  const text = lang.ru;
   const response = useSelector((state: RootState) => state.response.response);
 
   const clear = () => dispatch(setResponse(''));
@@ -19,6 +19,9 @@ export default function Response() {
     <section className="response">
       <div className="editor__header">
         <h3>{text.title}</h3>
+        <div style={{ height: '1rem' }}>
+          {true && <p style={{ fontSize: '12px', color: 'red' }}>{}</p>}
+        </div>
         <button
           onClick={() => {
             clear();

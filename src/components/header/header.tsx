@@ -8,7 +8,7 @@ import { useIsAuthorized } from '../../hooks/useIsAuthorized';
 import './header.scss';
 
 export default function Header() {
-  const text = lang.en;
+  const text = lang.ru;
   const { user, navigate } = useIsAuthorized();
   const loginOutAndGoWelcome = () => {
     logout();

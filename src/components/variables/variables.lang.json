@@ -3,12 +3,14 @@
     "title": "Переменные",
     "close": "Закрыть",
     "placeholder": "Введите JSON",
-    "addVariables": "Добавить переменные"
+    "addVariables": "Добавить",
+    "alarm": "Неверные JSON данные переменных"
   },
   "en": {
     "title": "Variables",
     "close": "Сlose",
     "placeholder": "Enter JSON",
-    "addVariables": "Add variables"
+    "addVariables": "Add",
+    "alarm": "Wrong variables JSON data"
   }
 }

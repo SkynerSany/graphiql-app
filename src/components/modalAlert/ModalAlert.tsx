@@ -21,10 +21,11 @@ export const ModalAlert = ({ text, delay, variant }: IModal) => {
 
     return () => clearTimeout(timer);
   }, []);
+  console.log('modal-finish');
 
   return (
     <>
-      {alert && <div className="modal">{text}</div>}
+      {alert && <div className="modal"></div>}
       {alert && <div className={`modal__text modal__text-${variant}`}>{text}</div>}
     </>
   );
