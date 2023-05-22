@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import MyButton from '../myButton/myButton';
 import { logout } from '../../authentication/firebase';
 import { useIsAuthorized } from '../../hooks/useIsAuthorized';
+import Select from '../select/select';
 
 import './header.scss';
 
@@ -17,12 +18,15 @@ export default function Header() {
 
   const [sticky, setSticky] = useState('');
 
+  const [languageSelectValue, setLanguageSelectValue] = useState('English');
+
   useEffect(() => {
     window.addEventListener('scroll', isSticky);
+    localStorage.setItem('languageSelectValue', JSON.stringify(languageSelectValue));
     return () => {
       window.removeEventListener('scroll', isSticky);
     };
-  }, []);
+  }, [languageSelectValue]);
 
   const isSticky = () => {
     setSticky(window.scrollY >= 30 ? 'header_sticky' : '');
@@ -77,6 +81,11 @@ export default function Header() {
               {text.login}
             </NavLink>
           )}
+          <Select
+            valueSelect={'languageSelectValue'}
+            setLanguageSelectValue={setLanguageSelectValue}
+            options={['English', 'Русский']}
+          />
         </div>
       </div>
     </header>

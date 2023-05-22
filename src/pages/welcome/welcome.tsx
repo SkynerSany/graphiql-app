@@ -24,6 +24,14 @@ export default function Welcome() {
                   SkynerSany
                 </a>{' '}
                 - <span className="f-green f-bold">teamlide</span>
+                <p className="h-mb20">
+                  I can work with pure JavaScript and with React. I am currently learning TypeScript
+                  and Redux. More than 10 pet-projects have already accumulated, among them there
+                  are one-page and multi-page sites with functionality (film collection, weather
+                  forecast, todo list, Gem Puzzle) and simple layout. Almost all designs are
+                  responsive or responsive. I am considering any offers for an internship or
+                  employment as a Frontend developer.
+                </p>
               </p>
               <p className="h-mb20"></p>
               <p>
@@ -75,6 +83,11 @@ export default function Welcome() {
                 The RS School is working by the principle of «Pay it forward.» Members of our
                 community share their knowledge and check students&#39; tasks for free. And we hope
                 our students will continue this work as our mentors in the future.
+              </p>
+              <p>
+                Everyone can study at RS School, regardless of age, professional employment, or
+                place of residence. However, you should have sufficient base knowledge before the
+                program begins.
               </p>
             </div>
           </div>
