@@ -6,6 +6,7 @@ import Editor from '../../components/editor/editor';
 import Documentation from '../../components/documentation/documentation';
 import Response from '../../components/response/response';
 import Variables from '../../components/variables/variables';
+import Headers from '../../components/headers/headers';
 
 export default function EditorPage() {
   const { user, loading, navigate } = useIsAuthorized();
@@ -20,9 +21,10 @@ export default function EditorPage() {
     <div className="editor-page">
       <div className="wrapper">
         <Documentation />
+        <Variables />
+        <Headers />
         <Editor />
         <Response />
-        <Variables />
       </div>
     </div>
   );

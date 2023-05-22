@@ -13,7 +13,11 @@ import { RootState } from '../../store/store';
 export default function Editor() {
   const text = lang.ru;
   const dispatch = useDispatch();
-  const variables = useSelector((state: RootState) => state.variables.variables);
+  const variablesString = useSelector((state: RootState) => state.variables.variables);
+  const variables = JSON.parse(variablesString);
+
+  const headersString = useSelector((state: RootState) => state.headers.headers);
+  const headers = JSON.parse(headersString);
 
   const [query, setQuery] = useState(
     js_beautify(
@@ -32,12 +36,10 @@ export default function Editor() {
     const url = 'https://rickandmortyapi.com/graphql';
 
     const makeRequest = (query: string) => {
-      console.log('query/var=', query, '=', JSON.parse(variables));
+      console.log('query/var=', query, '=', variables, '=', headers);
       return fetch(url, {
         method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
+        headers: headers,
         body: JSON.stringify({ query, variables }),
       }).then((res) => res.json());
     };
@@ -54,14 +56,14 @@ export default function Editor() {
   return (
     <section className="editor">
       <div className="editor__header">
-        <h3 className="h-mb20">{text.title}</h3>
+        <h3>{text.title}</h3>
         <button onClick={() => getResponse()}>{text.send}</button>
       </div>
       <AceEditor
         placeholder={text.response_placeholder}
         mode="json"
         theme="kuroir"
-        name="blah2"
+        name="editor"
         onChange={onChange}
         fontSize={14}
         showPrintMargin={true}

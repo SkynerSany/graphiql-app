@@ -2,13 +2,13 @@
   "ru": {
     "title": "Переменные",
     "close": "Закрыть",
-    "placeholder": "Введите переменные",
-    "save": "Сохранить"
+    "placeholder": "Введите JSON",
+    "addVariables": "Добавить переменные"
   },
   "en": {
     "title": "Variables",
     "close": "Сlose",
-    "placeholder": "Enter variables",
-    "save": "Save"
+    "placeholder": "Enter JSON",
+    "addVariables": "Add variables"
   }
 }

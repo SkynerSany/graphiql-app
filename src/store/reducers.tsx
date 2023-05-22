@@ -9,10 +9,6 @@ const initialDocumentationState: IDocumentationState = {
   redirect: false,
 };
 
-const initialResponseState: IResponseState = {
-  response: '',
-};
-
 const documentationSlice = createSlice({
   name: 'documentation',
   initialState: initialDocumentationState,
@@ -36,7 +32,7 @@ const documentationSlice = createSlice({
 });
 
 const initialVariablesState = {
-  variables: '',
+  variables: `{}`,
 };
 
 const variablesSlice = createSlice({
@@ -48,6 +44,23 @@ const variablesSlice = createSlice({
     },
   },
 });
+const initialHeadersState = {
+  headers: `{}`,
+};
+
+const headersSlice = createSlice({
+  name: 'headers',
+  initialState: initialHeadersState,
+  reducers: {
+    setHeadersStore: (state, action: PayloadAction<string>) => {
+      state.headers = action.payload;
+    },
+  },
+});
+
+const initialResponseState: IResponseState = {
+  response: '',
+};
 
 const responseSlice = createSlice({
   name: 'response',
@@ -65,10 +78,12 @@ const rootReducer = combineReducers({
   store: reducer,
   response: responseSlice.reducer,
   variables: variablesSlice.reducer,
+  headers: headersSlice.reducer,
 });
 
 export const { setResponse } = responseSlice.actions;
 export const { setVariables } = variablesSlice.actions;
+export const { setHeadersStore } = headersSlice.actions;
 export const { updateNode, openErrorModal, closeErrorModal, onRedirect, offRedirect } = actions;
 
 export default rootReducer;
