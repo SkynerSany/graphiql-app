@@ -1,8 +1,10 @@
 {
   "ru": {
-    "title": "Страница редактора"
+    "title": "Страница редактора",
+    "wrongData": "Неверные JSON-данные заголовков или переменных"
   },
   "en": {
-    "title": "Editor page"
+    "title": "Editor page",
+    "wrongData": "Wrong JSON data of headers or variables"
   }
 }

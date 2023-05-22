@@ -9,7 +9,7 @@ import { updateNode } from '../../store/reducers';
 import { RootState } from '../../store/store';
 
 export default function Documentation(): JSX.Element {
-  const text = lang.en;
+  const text = lang.ru;
   const [path, setPath] = useState<IPath[]>([]);
   const curentNode = useSelector((state: RootState) => state.store.node);
   const dispatch = useDispatch();
