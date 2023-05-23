@@ -40,7 +40,6 @@ function Register() {
 
   return (
     <>
-      {isOpenErrorModal && <ModalAlert text={t('page.register.checkData')} delay={2000} />}
       <div className="register">
         <div className="register__container">
           <form onSubmit={handleSubmit(registerUser)}>
@@ -111,6 +110,7 @@ function Register() {
             {t('page.register.now')}
           </div>
         </div>
+        {isOpenErrorModal && <ModalAlert text={t('page.register.checkData')} delay={2000} />}
       </div>
     </>
   );

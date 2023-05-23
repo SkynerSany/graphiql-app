@@ -20,8 +20,8 @@ export default function EditorPage() {
     <div className="editor-page">
       <div className="wrapper">
         <Documentation />
-        <Variables />
         <Headers />
+        <Variables />
         <Editor />
         <Response />
       </div>

@@ -1,17 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import js_beautify from 'js-beautify';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-kuroir';
-import { setHeadersStore } from '../../store/reducers';
+import { closeHeadersAlarm, setHeadersStore } from '../../store/reducers';
+import { RootState } from '../../store/store';
 
 import './headers.scss';
 
 export default function Headers() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const isOpenHeadersAlarm = useSelector((state: RootState) => state.headers.headersAlarm);
   const [headers, setHeaders] = useState(
     js_beautify(`{"Content-type": "application/json"}`, { indent_size: 2 })
   );
@@ -22,11 +24,17 @@ export default function Headers() {
 
   function onChange(newValue: string) {
     setHeaders(newValue);
+    dispatch(closeHeadersAlarm());
   }
 
   return (
     <section className="headers">
       <h3>{t('headers.title')}</h3>
+      <div style={{ height: '1rem' }}>
+        {isOpenHeadersAlarm && (
+          <p style={{ fontSize: '12px', color: 'red' }}>{t('headers.alarm')}</p>
+        )}
+      </div>
       <button
         onClick={() => {
           getHeaders();

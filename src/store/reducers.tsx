@@ -33,6 +33,7 @@ const documentationSlice = createSlice({
 
 const initialVariablesState = {
   variables: `{}`,
+  variablesAlarm: false,
 };
 
 const variablesSlice = createSlice({
@@ -42,10 +43,17 @@ const variablesSlice = createSlice({
     setVariables: (state, action: PayloadAction<string>) => {
       state.variables = action.payload;
     },
+    openVariablesAlarm: (state) => {
+      state.variablesAlarm = true;
+    },
+    closeVariablesAlarm: (state) => {
+      state.variablesAlarm = false;
+    },
   },
 });
 const initialHeadersState = {
   headers: `{}`,
+  headersAlarm: false,
 };
 
 const headersSlice = createSlice({
@@ -55,11 +63,18 @@ const headersSlice = createSlice({
     setHeadersStore: (state, action: PayloadAction<string>) => {
       state.headers = action.payload;
     },
+    openHeadersAlarm: (state) => {
+      state.headersAlarm = true;
+    },
+    closeHeadersAlarm: (state) => {
+      state.headersAlarm = false;
+    },
   },
 });
 
 const initialResponseState: IResponseState = {
   response: '',
+  responseAlarm: false,
 };
 
 const responseSlice = createSlice({
@@ -68,6 +83,12 @@ const responseSlice = createSlice({
   reducers: {
     setResponse: (state, action: PayloadAction<string>) => {
       state.response = action.payload;
+    },
+    openResponseAlarm: (state) => {
+      state.responseAlarm = true;
+    },
+    closeResponseAlarm: (state) => {
+      state.responseAlarm = false;
     },
   },
 });
@@ -81,9 +102,9 @@ const rootReducer = combineReducers({
   headers: headersSlice.reducer,
 });
 
-export const { setResponse } = responseSlice.actions;
-export const { setVariables } = variablesSlice.actions;
-export const { setHeadersStore } = headersSlice.actions;
+export const { setResponse, closeResponseAlarm, openResponseAlarm } = responseSlice.actions;
+export const { setVariables, openVariablesAlarm, closeVariablesAlarm } = variablesSlice.actions;
+export const { setHeadersStore, openHeadersAlarm, closeHeadersAlarm } = headersSlice.actions;
 export const { updateNode, openErrorModal, closeErrorModal, onRedirect, offRedirect } = actions;
 
 export default rootReducer;

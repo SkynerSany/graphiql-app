@@ -19,6 +19,9 @@ export default function Response() {
     <section className="response">
       <div className="editor__header">
         <h3>{t('response.title')}</h3>
+        <div style={{ height: '1rem' }}>
+          {true && <p style={{ fontSize: '12px', color: 'red' }}>{}</p>}
+        </div>
         <button
           onClick={() => {
             clear();

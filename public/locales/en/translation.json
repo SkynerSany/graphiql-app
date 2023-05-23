@@ -13,7 +13,9 @@
     "editor": {
       "title": "Editor",
       "response_placeholder": "Write your request",
-      "send": "Send"
+      "send": "Send",
+      "checkData": "Wrong request",
+      "wrongData": "Wrong JSON data of headers or variables"
     },
     "error": {
       "title": "404 page"
@@ -75,7 +77,8 @@
   "headers": {
     "title": "Headers",
     "placeholder": "Enter JSON",
-    "addHeaders": "Add headers"
+    "addHeaders": "Add headers",
+    "alarm": "Wrong headers JSON data"
   },
   "response": {
     "title": "Response",
@@ -86,6 +89,7 @@
     "title": "Variables",
     "close": "Сlose",
     "placeholder": "Enter JSON",
-    "addVariables": "Add variables"
+    "addVariables": "Add variables",
+    "alarm": "Wrong variables JSON data"
   }
 }

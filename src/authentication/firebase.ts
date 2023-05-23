@@ -41,7 +41,7 @@ const logInWithEmailAndPassword = async (email: string, password: string) => {
     setTimeout(() => store.dispatch(onRedirect()), 2000);
 
     // alert(text.wrongData);
-    if (err instanceof Error) console.log(err.message);
+    // if (err instanceof Error) console.log(err.message);
   }
 };
 
