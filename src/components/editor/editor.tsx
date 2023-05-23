@@ -2,8 +2,9 @@ import './editor.scss';
 import lang from './editor.lang.json';
 import { useState } from 'react';
 import {
-  openErrorModal,
+  closeResponseAlarm,
   openHeadersAlarm,
+  openResponseAlarm,
   openVariablesAlarm,
   setResponse,
 } from '../../store/reducers';
@@ -13,7 +14,7 @@ import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-kuroir';
-import store, { RootState } from '../../store/store';
+import { RootState } from '../../store/store';
 
 interface IQueryObj {
   query: string;
@@ -24,6 +25,8 @@ interface IQueryObj {
 export default function Editor() {
   const text = lang.ru;
   const dispatch = useDispatch();
+
+  const isOpenRequestAlarm = useSelector((state: RootState) => state.response.responseAlarm);
 
   const [query, setQuery] = useState(
     js_beautify(
@@ -54,15 +57,24 @@ export default function Editor() {
   }
 
   function getResponse() {
+    dispatch(closeResponseAlarm());
     const url = 'https://rickandmortyapi.com/graphql';
 
-    const makeRequest = ({ query, variables, headers }: IQueryObj) => {
+    const makeRequest = async ({ query, variables, headers }: IQueryObj) => {
       console.log('query/var=', query, '=', variables, '=', headers);
+
       return fetch(url, {
         method: 'POST',
         headers: headers,
         body: JSON.stringify({ query, variables }),
-      }).then((res) => res.json());
+      }).then((res) => {
+        console.log('responseStatus=', res.status, 'responseOK=', res.ok);
+        if (res.ok) {
+          return res.json();
+        } else {
+          dispatch(openResponseAlarm());
+        }
+      });
     };
 
     makeRequest(queryObj).then(({ data }) =>
@@ -79,7 +91,7 @@ export default function Editor() {
       <div className="editor__header">
         <h3>{text.title}</h3>
         <div style={{ height: '1rem' }}>
-          {true && <p style={{ fontSize: '12px', color: 'red' }}>{}</p>}
+          {isOpenRequestAlarm && <p style={{ fontSize: '12px', color: 'red' }}>{text.checkData}</p>}
         </div>
         <button onClick={() => getResponse()}>{text.send}</button>
       </div>

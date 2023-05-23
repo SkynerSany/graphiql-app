@@ -2,11 +2,13 @@
   "ru": {
     "title": "Редактор",
     "response_placeholder": "Напишите ваш запрос",
-    "send": "Отправить"
+    "send": "Отправить",
+    "checkData": "Неверный запрос"
   },
   "en": {
     "title": "Editor",
     "response_placeholder": "Write your request",
-    "send": "Send"
+    "send": "Send",
+    "checkData": "Wrong request"
   }
 }
