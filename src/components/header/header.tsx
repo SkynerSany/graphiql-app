@@ -18,15 +18,12 @@ export default function Header() {
 
   const [sticky, setSticky] = useState('');
 
-  const [languageSelectValue, setLanguageSelectValue] = useState('English');
-
   useEffect(() => {
     window.addEventListener('scroll', isSticky);
-    localStorage.setItem('languageSelectValue', JSON.stringify(languageSelectValue));
     return () => {
       window.removeEventListener('scroll', isSticky);
     };
-  }, [languageSelectValue]);
+  }, []);
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
