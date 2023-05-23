@@ -15,13 +15,6 @@ import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-kuroir';
 import { RootState } from '../../store/store';
-import { useDispatch, useSelector } from 'react-redux';
-import js_beautify from 'js-beautify';
-import AceEditor from 'react-ace';
-import 'ace-builds/src-noconflict/mode-json';
-import 'ace-builds/src-noconflict/theme-kuroir';
-import { setResponse } from '../../store/reducers';
-import { RootState } from '../../store/store';
 
 interface IQueryObj {
   query: string;
