@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import lang from './register.lang.json';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
@@ -18,7 +17,6 @@ interface IFormValues {
 }
 
 function Register() {
-  const text = lang.ru;
   const { t } = useTranslation();
 
   const { user, loading, navigate } = useIsAuthorized();

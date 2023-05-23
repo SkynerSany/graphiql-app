@@ -1,4 +1,3 @@
-import lang from './editor.lang.json';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,7 +11,6 @@ import { RootState } from '../../store/store';
 import './editor.scss';
 
 export default function Editor() {
-  const text = lang.ru;
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const variablesString = useSelector((state: RootState) => state.variables.variables);

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import lang from './header.lang.json';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import MyButton from '../myButton/myButton';
@@ -11,7 +10,6 @@ import './header.scss';
 
 export default function Header() {
   const { t, i18n } = useTranslation();
-  const text = lang.en;
   const { user, navigate } = useIsAuthorized();
   const loginOutAndGoWelcome = () => {
     logout();

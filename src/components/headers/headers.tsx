@@ -1,4 +1,3 @@
-import lang from './headers.lang.json';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -11,7 +10,6 @@ import { setHeadersStore } from '../../store/reducers';
 import './headers.scss';
 
 export default function Headers() {
-  const text = lang.ru;
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [headers, setHeaders] = useState(

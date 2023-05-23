@@ -1,4 +1,3 @@
-import lang from './login.lang.json';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,7 +16,6 @@ interface IFormValues {
 }
 
 function Login() {
-  const text = lang.ru;
   const { t } = useTranslation();
 
   const {

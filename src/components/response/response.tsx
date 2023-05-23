@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import lang from './response.lang.json';
 import { useTranslation } from 'react-i18next';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-json';
@@ -11,7 +10,6 @@ import './response.scss';
 
 export default function Response() {
   const dispatch = useDispatch();
-  const text = lang.en;
   const { t } = useTranslation();
   const response = useSelector((state: RootState) => state.response.response);
 

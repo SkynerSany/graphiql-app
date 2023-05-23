@@ -1,6 +1,5 @@
 import './documentation.scss';
 import { useTranslation } from 'react-i18next';
-import lang from './documentation.lang.json';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Path from './components/path';
@@ -11,7 +10,6 @@ import { RootState } from '../../store/store';
 
 export default function Documentation(): JSX.Element {
   const { t } = useTranslation();
-  const text = lang.en;
   const [path, setPath] = useState<IPath[]>([]);
   const curentNode = useSelector((state: RootState) => state.store.node);
   const dispatch = useDispatch();

@@ -1,4 +1,3 @@
-import lang from './variables.lang.json';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -11,7 +10,6 @@ import { setVariables } from '../../store/reducers';
 import './variables.scss';
 
 export default function Variables() {
-  const text = lang.ru;
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [variable, setVariable] = useState(

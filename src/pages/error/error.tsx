@@ -1,10 +1,8 @@
-import lang from './error.lang.json';
 import { useTranslation } from 'react-i18next';
 
 import './error.scss';
 
 export default function ErrorPage() {
-  const text = lang.en;
   const { t } = useTranslation();
 
   return (

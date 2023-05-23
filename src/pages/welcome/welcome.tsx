@@ -1,12 +1,10 @@
 import { useDispatch } from 'react-redux';
-import lang from './welcome.lang.json';
 import { useTranslation } from 'react-i18next';
 import { offRedirect } from '../../store/reducers';
 
 import './welcome.scss';
 
 export default function Welcome() {
-  const text = lang.en;
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
