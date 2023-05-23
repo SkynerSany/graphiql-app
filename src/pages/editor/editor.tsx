@@ -1,5 +1,3 @@
-import './editor.scss';
-// import lang from './editor.lang.json';
 import { useEffect } from 'react';
 import { useIsAuthorized } from '../../hooks/useIsAuthorized';
 import Editor from '../../components/editor/editor';
@@ -8,9 +6,10 @@ import Response from '../../components/response/response';
 import Variables from '../../components/variables/variables';
 import Headers from '../../components/headers/headers';
 
+import './editor.scss';
+
 export default function EditorPage() {
   const { user, loading, navigate } = useIsAuthorized();
-  // const text = lang.en;
 
   useEffect(() => {
     if (loading) return;

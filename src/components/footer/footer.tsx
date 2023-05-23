@@ -1,10 +1,14 @@
+import { useTranslation } from 'react-i18next';
+
 import './footer.scss';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer">
       <p className=" d-f gap20">
-        <span className="nowrap f-bold">App developers:</span>{' '}
+        <span className="nowrap f-bold">{t('footer')}:</span>{' '}
         <a href="https://github.com/SkynerSany" className="github-link">
           SkynerSany
         </a>

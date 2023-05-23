@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { registerWithEmailAndPassword } from '../../authentication/firebase';
-import './register.scss';
 import lang from './register.lang.json';
+import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import { ModalAlert } from '../../components/modalAlert/ModalAlert';
 import { useSelector } from 'react-redux';
+import { registerWithEmailAndPassword } from '../../authentication/firebase';
+import { ModalAlert } from '../../components/modalAlert/ModalAlert';
 import { RootState } from '../../store/store';
 import { useIsAuthorized } from '../../hooks/useIsAuthorized';
+
+import './register.scss';
 
 interface IFormValues {
   name: string;
@@ -17,6 +19,7 @@ interface IFormValues {
 
 function Register() {
   const text = lang.ru;
+  const { t } = useTranslation();
 
   const { user, loading, navigate } = useIsAuthorized();
 
@@ -39,21 +42,21 @@ function Register() {
 
   return (
     <>
-      {isOpenErrorModal && <ModalAlert text={text.checkData} delay={2000} />}
+      {isOpenErrorModal && <ModalAlert text={t('page.register.checkData')} delay={2000} />}
       <div className="register">
         <div className="register__container">
           <form onSubmit={handleSubmit(registerUser)}>
             <input
               type="text"
               className="register__textBox"
-              placeholder={text.name}
+              placeholder={t('page.register.name')}
               {...register('name', {
-                required: text.fieldRequired,
-                minLength: { value: 3, message: text.minLength3 },
-                maxLength: { value: 10, message: text.maxLength10 },
+                required: t`page.register.fieldRequired`,
+                minLength: { value: 3, message: t`page.register.minLength3` },
+                maxLength: { value: 10, message: t`page.register.maxLength10` },
                 pattern: {
                   value: /[A-Z]{1}/,
-                  message: text.startCapitalLetter,
+                  message: t`page.register.startCapitalLetter`,
                 },
               })}
             />
@@ -64,14 +67,14 @@ function Register() {
             <input
               type="text"
               className="register__textBox"
-              placeholder={text.mail}
+              placeholder={t('page.register.mail')}
               {...register('email', {
-                required: text.fieldRequired,
-                minLength: { value: 5, message: text.minLength5 },
-                maxLength: { value: 20, message: text.maxLength20 },
+                required: t`page.register.fieldRequired`,
+                minLength: { value: 5, message: t`page.register.minLength5` },
+                maxLength: { value: 20, message: t`page.register.maxLength20` },
                 pattern: {
                   value: /[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+/,
-                  message: text.incorrectEmail,
+                  message: t`page.register.incorrectEmail`,
                 },
               })}
             />
@@ -84,14 +87,14 @@ function Register() {
             <input
               type="text"
               className="register__textBox"
-              placeholder={text.password}
+              placeholder={t('page.register.password')}
               {...register('password', {
-                required: text.fieldRequired,
-                minLength: { value: 8, message: text.minLength8 },
-                maxLength: { value: 20, message: text.maxLength20 },
+                required: t`page.register.fieldRequired`,
+                minLength: { value: 8, message: t`page.register.minLength8` },
+                maxLength: { value: 20, message: t`page.register.maxLength20` },
                 pattern: {
                   value: /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[^\w\s]).{1,}/,
-                  message: text.atLeast,
+                  message: t`page.register.atLeast`,
                 },
               })}
             />
@@ -101,12 +104,13 @@ function Register() {
               )}
             </div>
             <button className="register__btn" type="submit">
-              {text.register}
+              {t('page.register.register')}
             </button>
           </form>
 
           <div>
-            {text.haveAccount} <Link to="/login">{text.login}</Link> {text.now}
+            {t('page.register.haveAccount')} <Link to="/login">{t('page.register.login')}</Link>{' '}
+            {t('page.register.now')}
           </div>
         </div>
       </div>

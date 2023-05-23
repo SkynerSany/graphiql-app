@@ -12,8 +12,6 @@ function Select({ valueSelect, setLanguageSelectValue, options }: Props) {
         onChange: (e) => setLanguageSelectValue(e.target.value),
       })}
       className="form__input_select"
-      data-testid="select"
-      required={true}
     >
       {options &&
         options.map((option) => (

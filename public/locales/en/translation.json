@@ -1,0 +1,91 @@
+{
+  "welcome": "Welcome",
+  "login": "Sing In",
+  "logout": "Logout",
+  "error": "404",
+  "editor": "Editor",
+  "register": "Sing Up",
+  "main": "Main",
+  "page": {
+    "welcome": {
+      "title": "Welcome page"
+    },
+    "editor": {
+      "title": "Editor",
+      "response_placeholder": "Write your request",
+      "send": "Send"
+    },
+    "error": {
+      "title": "404 page"
+    },
+    "login": {
+      "login": "Login",
+      "forgot": "Forgot Password",
+      "haveAccount": "Don't have an account?",
+      "mail": "E-mail Address",
+      "password": "Password",
+      "register": "Register",
+      "now": "now",
+      "checkData": "Please check the data",
+      "minLength3": "Minimum input length 3 characters",
+      "minLength5": "Minimum input length 5 characters",
+      "minLength8": "Minimum input length 8 characters",
+      "maxLength10": "Maximum input length 10 characters",
+      "maxLength20": "Maximum input length 20 characters",
+      "startCapitalLetter": "Please start with a capital letter",
+      "fieldRequired": "The field is required",
+      "incorrectEmail": "Incorrect email",
+      "atLeast": "At least 1 letter, 1 number, 1 special symbol"
+    },
+    "register": {
+      "mail": "E-mail Address",
+      "name": "Name",
+      "password": "Password",
+      "register": "Register",
+      "haveAccount": "Already have an account?",
+      "now": "now",
+      "login": "Login",
+      "checkData": "Please check the data",
+      "minLength3": "Minimum input length 3 characters",
+      "minLength5": "Minimum input length 5 characters",
+      "minLength8": "Minimum input length 8 characters",
+      "maxLength10": "Maximum input length 10 characters",
+      "maxLength20": "Maximum input length 20 characters",
+      "startCapitalLetter": "Please start with a capital letter",
+      "fieldRequired": "The field is required",
+      "incorrectEmail": "Incorrect email",
+      "atLeast": "At least 1 letter, 1 number, 1 special symbol"
+    }
+  },
+  "info": {
+    "developers": {
+      "title": "General information about the developers"
+    },
+    "project": {
+      "title": "General information about the project"
+    },
+    "course": {
+      "title": "General information about the course"
+    }
+  },
+  "footer": "App developers",
+  "documentation": {
+    "title": "Documentation"
+  },
+  "headers": {
+    "title": "Headers",
+    "placeholder": "Enter JSON",
+    "addHeaders": "Add headers"
+  },
+  "response": {
+    "title": "Response",
+    "placeholder": "Here is the answer to your request!",
+    "clear": "Clear"
+  },
+  "variables": {
+    "title": "Variables",
+    "close": "Сlose",
+    "placeholder": "Enter JSON",
+    "addVariables": "Add variables"
+  }
+}
