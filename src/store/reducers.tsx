@@ -74,6 +74,7 @@ const headersSlice = createSlice({
 
 const initialResponseState: IResponseState = {
   response: '',
+  responseAlarm: false,
 };
 
 const responseSlice = createSlice({
@@ -82,6 +83,12 @@ const responseSlice = createSlice({
   reducers: {
     setResponse: (state, action: PayloadAction<string>) => {
       state.response = action.payload;
+    },
+    openResponseAlarm: (state) => {
+      state.responseAlarm = true;
+    },
+    closeResponseAlarm: (state) => {
+      state.responseAlarm = false;
     },
   },
 });
@@ -95,7 +102,7 @@ const rootReducer = combineReducers({
   headers: headersSlice.reducer,
 });
 
-export const { setResponse } = responseSlice.actions;
+export const { setResponse, closeResponseAlarm, openResponseAlarm } = responseSlice.actions;
 export const { setVariables, openVariablesAlarm, closeVariablesAlarm } = variablesSlice.actions;
 export const { setHeadersStore, openHeadersAlarm, closeHeadersAlarm } = headersSlice.actions;
 export const { updateNode, openErrorModal, closeErrorModal, onRedirect, offRedirect } = actions;

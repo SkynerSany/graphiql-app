@@ -8,4 +8,5 @@ export interface IDocumentationState {
 
 export interface IResponseState {
   response: string;
+  responseAlarm: boolean;
 }

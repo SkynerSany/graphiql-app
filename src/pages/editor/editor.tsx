@@ -1,5 +1,5 @@
 import './editor.scss';
-import lang from './editor.lang.json';
+// import lang from './editor.lang.json';
 import { useEffect } from 'react';
 import { useIsAuthorized } from '../../hooks/useIsAuthorized';
 import Editor from '../../components/editor/editor';
@@ -10,8 +10,7 @@ import Headers from '../../components/headers/headers';
 
 export default function EditorPage() {
   const { user, loading, navigate } = useIsAuthorized();
-  const text = lang.ru;
-  // const isOpenErrorModal = useSelector((state: RootState) => state.store.errorModal);
+  // const text = lang.ru;
 
   useEffect(() => {
     if (loading) return;
@@ -27,7 +26,6 @@ export default function EditorPage() {
         <Editor />
         <Response />
       </div>
-      {/* {isOpenErrorModal && <ModalAlert text={text.wrongData} delay={2000} />} */}
     </div>
   );
 }
