@@ -56,6 +56,7 @@ export default function Variables() {
         setOptions={{
           showLineNumbers: true,
           tabSize: 2,
+          useWorker: false,
         }}
         style={{ width: 'auto' }}
       />

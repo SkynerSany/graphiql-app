@@ -44,6 +44,7 @@ export default function Response() {
         setOptions={{
           showLineNumbers: true,
           tabSize: 2,
+          useWorker: false,
         }}
         style={{ width: 'auto' }}
       />

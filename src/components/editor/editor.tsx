@@ -61,14 +61,14 @@ export default function Editor() {
     const url = 'https://rickandmortyapi.com/graphql';
 
     const makeRequest = async ({ query, variables, headers }: IQueryObj) => {
-      console.log('query/var=', query, '=', variables, '=', headers);
+      // console.log('query/var=', query, '=', variables, '=', headers);
 
       return fetch(url, {
         method: 'POST',
         headers: headers,
         body: JSON.stringify({ query, variables }),
       }).then((res) => {
-        console.log('responseStatus=', res.status, 'responseOK=', res.ok);
+        // console.log('responseStatus=', res.status, 'responseOK=', res.ok);
         if (res.ok) {
           return res.json();
         } else {
@@ -111,6 +111,7 @@ export default function Editor() {
         setOptions={{
           showLineNumbers: true,
           tabSize: 2,
+          useWorker: false,
         }}
         style={{ width: 'auto' }}
       />
