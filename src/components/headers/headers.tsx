@@ -1,17 +1,17 @@
-import './headers.scss';
-import lang from './headers.lang.json';
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import js_beautify from 'js-beautify';
 import AceEditor from 'react-ace';
-
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-kuroir';
 import { closeHeadersAlarm, setHeadersStore } from '../../store/reducers';
 import { RootState } from '../../store/store';
 
+import './headers.scss';
+
 export default function Headers() {
-  const text = lang.ru;
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const isOpenHeadersAlarm = useSelector((state: RootState) => state.headers.headersAlarm);
   const [headers, setHeaders] = useState(
@@ -29,19 +29,21 @@ export default function Headers() {
 
   return (
     <section className="headers">
-      <h3>{text.title}</h3>
+      <h3>{t('headers.title')}</h3>
       <div style={{ height: '1rem' }}>
-        {isOpenHeadersAlarm && <p style={{ fontSize: '12px', color: 'red' }}>{text.alarm}</p>}
+        {isOpenHeadersAlarm && (
+          <p style={{ fontSize: '12px', color: 'red' }}>{t('headers.alarm')}</p>
+        )}
       </div>
       <button
         onClick={() => {
           getHeaders();
         }}
       >
-        {text.addHeaders}
+        {t('headers.addHeaders')}
       </button>
       <AceEditor
-        placeholder={text.placeholder}
+        placeholder={t('headers.placeholder')}
         mode="json"
         theme="kuroir"
         name="headers"

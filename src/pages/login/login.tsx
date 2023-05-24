@@ -1,15 +1,14 @@
-import './login.scss';
-import lang from './login.lang.json';
-
-import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth, logInWithEmailAndPassword } from '../../authentication/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import './login.scss';
 import { useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { auth, logInWithEmailAndPassword } from '../../authentication/firebase';
 import { RootState } from '../../store/store';
 import { ModalAlert } from '../../components/modalAlert/ModalAlert';
-import { useForm } from 'react-hook-form';
+
+import './login.scss';
 
 interface IFormValues {
   email: string;
@@ -17,7 +16,7 @@ interface IFormValues {
 }
 
 function Login() {
-  const text = lang.ru;
+  const { t } = useTranslation();
 
   const {
     register,
@@ -42,20 +41,20 @@ function Login() {
 
   return (
     <div className="login">
-      {isOpenErrorModal && <ModalAlert text={text.checkData} delay={2000} />}
+      {isOpenErrorModal && <ModalAlert text={t('page.login.checkData')} delay={2000} />}
       <div className="login__container">
         <form onSubmit={handleSubmit(loginUser)}>
           <input
             type="text"
             className="login__textBox"
-            placeholder={text.mail}
+            placeholder={t('page.login.mail')}
             {...register('email', {
-              required: text.fieldRequired,
-              minLength: { value: 5, message: text.minLength5 },
-              maxLength: { value: 20, message: text.maxLength20 },
+              required: t`page.login.fieldRequired`,
+              minLength: { value: 5, message: t`page.login.minLength5` },
+              maxLength: { value: 20, message: t`page.login.maxLength20` },
               pattern: {
                 value: /[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+/,
-                message: text.incorrectEmail,
+                message: t`page.login.incorrectEmail`,
               },
             })}
           />
@@ -66,14 +65,14 @@ function Login() {
           <input
             type="text"
             className="login__textBox"
-            placeholder={text.password}
+            placeholder={t('page.login.password')}
             {...register('password', {
-              required: text.fieldRequired,
-              minLength: { value: 8, message: text.minLength8 },
-              maxLength: { value: 20, message: text.maxLength20 },
+              required: t`page.login.fieldRequired`,
+              minLength: { value: 8, message: t`page.login.minLength8` },
+              maxLength: { value: 20, message: t`page.login.maxLength20` },
               pattern: {
                 value: /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[^\w\s]).{1,}/,
-                message: text.atLeast,
+                message: t`page.login.atLeast`,
               },
             })}
           />
@@ -84,12 +83,13 @@ function Login() {
           </div>
 
           <button className="login__btn" type="submit">
-            {text.login}
+            {t('page.login.login')}
           </button>
         </form>
 
         <div>
-          {text.haveAccount} <Link to="/register">{text.register}</Link> {text.now}.
+          {t('page.login.haveAccount')} <Link to="/register">{t('page.login.register')}</Link>{' '}
+          {t('page.login.now')}.
         </div>
       </div>
     </div>

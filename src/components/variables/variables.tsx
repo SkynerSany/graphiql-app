@@ -1,17 +1,17 @@
-import './variables.scss';
-import lang from './variables.lang.json';
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import js_beautify from 'js-beautify';
 import AceEditor from 'react-ace';
-
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-kuroir';
 import { closeVariablesAlarm, setVariables } from '../../store/reducers';
 import { RootState } from '../../store/store';
 
+import './variables.scss';
+
 export default function Variables() {
-  const text = lang.ru;
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const isOpenVariablesAlarm = useSelector((state: RootState) => state.variables.variablesAlarm);
   const [variable, setVariable] = useState(
@@ -29,19 +29,21 @@ export default function Variables() {
 
   return (
     <section className="variables">
-      <h3>{text.title}</h3>
+      <h3>{t('variables.title')}</h3>
       <div style={{ height: '1rem' }}>
-        {isOpenVariablesAlarm && <p style={{ fontSize: '12px', color: 'red' }}>{text.alarm}</p>}
+        {isOpenVariablesAlarm && (
+          <p style={{ fontSize: '12px', color: 'red' }}>{t('variables.alarm')}</p>
+        )}
       </div>
       <button
         onClick={() => {
           getVariables();
         }}
       >
-        {text.addVariables}
+        {t('variables.addVariables')}
       </button>
       <AceEditor
-        placeholder={text.placeholder}
+        placeholder={t('variables.placeholder')}
         mode="json"
         theme="kuroir"
         name="variables"

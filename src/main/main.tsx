@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from '../components/app/app';
 import { BrowserRouter } from 'react-router-dom';
-import './main.scss';
 import { Provider } from 'react-redux';
+import './i18n';
+import App from '../components/app/app';
 import store from '../store/store';
+
+import './main.scss';
 
 const root = document.getElementById('root');
 

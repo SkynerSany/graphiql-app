@@ -1,15 +1,15 @@
 import './documentation.scss';
-import lang from './documentation.lang.json';
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Path from './components/path';
 import List from './components/list';
 import { IPath, INode } from './documentation.interfaces';
-import { useDispatch, useSelector } from 'react-redux';
 import { updateNode } from '../../store/reducers';
 import { RootState } from '../../store/store';
 
 export default function Documentation(): JSX.Element {
-  const text = lang.ru;
+  const { t } = useTranslation();
   const [path, setPath] = useState<IPath[]>([]);
   const curentNode = useSelector((state: RootState) => state.store.node);
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export default function Documentation(): JSX.Element {
 
   return (
     <section className="documentation">
-      <h3>{text.title}</h3>
+      <h3>{t('documentation.title')}</h3>
       <Path path={path} setPath={setPath} />
       <button onClick={() => setPrevField()} className="documentation__prevButton">
         {'<'}

@@ -1,5 +1,5 @@
+import { useTranslation } from 'react-i18next';
 import './editor.scss';
-import lang from './editor.lang.json';
 import { useState } from 'react';
 import {
   closeResponseAlarm,
@@ -23,7 +23,7 @@ interface IQueryObj {
 }
 
 export default function Editor() {
-  const text = lang.ru;
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const isOpenRequestAlarm = useSelector((state: RootState) => state.response.responseAlarm);
@@ -89,14 +89,16 @@ export default function Editor() {
   return (
     <section className="editor">
       <div className="editor__header">
-        <h3>{text.title}</h3>
+        <h3>{t('page.editor.title')}</h3>
         <div style={{ height: '1rem' }}>
-          {isOpenRequestAlarm && <p style={{ fontSize: '12px', color: 'red' }}>{text.checkData}</p>}
+          {isOpenRequestAlarm && (
+            <p style={{ fontSize: '12px', color: 'red' }}>{t('page.editor.checkData')}</p>
+          )}
         </div>
-        <button onClick={() => getResponse()}>{text.send}</button>
+        <button onClick={() => getResponse()}>{t('page.editor.send')}</button>
       </div>
       <AceEditor
-        placeholder={text.response_placeholder}
+        placeholder={t('page.editor.response_placeholder')}
         mode="json"
         theme="kuroir"
         name="editor"
