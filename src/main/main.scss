@@ -96,6 +96,41 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
+
+  border-right: 4px solid #000;
+
+  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes cursor {
+  0%, 
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #000;
+  }
+}
+
+@keyframes typing {
+  0% { 
+    
+  width: 0ch}
+  30% { 
+    width: 16ch;
+  }
+  80% { 
+    width: 16ch;
+  }
+  90% { 
+    width: 0ch;
+  }
+  100% { 
+    width: 0ch;
+  }
 }
 
 h2 {
