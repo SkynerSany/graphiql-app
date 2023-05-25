@@ -28,3 +28,25 @@
   border: 3px solid #d4dca9;
   border-radius: 30px;
 }
+
+.logo_graphiql {
+  margin: 0 auto;
+  animation: 3s linear 0s normal none infinite running logo_graphiql;
+  -webkit-animation: 3s linear 0s normal none infinite running logo_graphiql;
+}
+@keyframes logo_graphiql {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes logo_graphiql {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
