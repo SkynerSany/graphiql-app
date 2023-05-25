@@ -21,7 +21,6 @@ export const ModalAlert = ({ text, delay, variant }: IModal) => {
 
     return () => clearTimeout(timer);
   }, []);
-  console.log('modal-finish');
 
   return (
     <>

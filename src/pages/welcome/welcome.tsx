@@ -19,7 +19,7 @@ export default function Welcome() {
           <div className="welcome-page__content">
             <div className="welcome-page__content_item">
               <h2>{t('info.developers.title')}</h2>
-              <p>
+              <div>
                 <a href="https://github.com/SkynerSany" className="github-link">
                   SkynerSany
                 </a>{' '}
@@ -32,7 +32,7 @@ export default function Welcome() {
                   responsive or responsive. I am considering any offers for an internship or
                   employment as a Frontend developer.
                 </p>
-              </p>
+              </div>
               <p className="h-mb20"></p>
               <p>
                 <a href="https://github.com/YuliyaBondar" className="github-link">
