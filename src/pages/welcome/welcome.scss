@@ -21,3 +21,9 @@
   background-color: #ebf2ea;
   box-shadow: 5px 5px 10px #d4dca9, -5px -5px 10px #ebf2ea;
 }
+
+.column_right {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
