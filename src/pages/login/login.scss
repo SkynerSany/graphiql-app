@@ -17,7 +17,11 @@
   text-align: center;
   padding: 30px;
 
-  background: radial-gradient(118.88% 606.86% at 0% 0%, rgba(10, 189, 160, 0.3) 0%, rgba(36, 197, 219, 0) 100%);
+  background: radial-gradient(
+    118.88% 606.86% at 0% 0%,
+    rgba(10, 189, 160, 0.3) 0%,
+    rgba(36, 197, 219, 0) 100%
+  );
   border: 3px solid #6088af;
   border-radius: 20px;
   backdrop-filter: blur(31px);
@@ -34,7 +38,7 @@
   padding: 10px;
 
   font-size: 18px;
-  
+
   box-shadow: 5px 5px 10px #ebf2ea, -5px -5px 10px #ebf2ea;
 }
 
