@@ -12,12 +12,20 @@
   border-bottom: 1px solid #bf9d7a;
 
   transition: all 0.2s ease-in-out;
+
+  @media (max-width: 342px) {
+    padding: 18px 6px;
+  }
 }
 
 .header_sticky {
   padding: 15px 18px;
 
   background-color: #a8cff3;
+
+  @media (max-width: 342px) {
+    padding: 15px 6px;
+  }
 }
 
 .header__wrapper {
@@ -27,7 +35,7 @@
   gap: 10px;
   width: 95%;
 
-  @media (max-width: 648px) {
+  @media (max-width: 764px) {
     flex-direction: column;
   }
 }
@@ -54,6 +62,12 @@
   gap: 20px;
 
   font-size: 20px;
+
+  @media (max-width: 410px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 .menu__link {
@@ -62,7 +76,7 @@
     color: #8b6b4c;
   }
 
-  @media (max-width: 338px) {
+  @media (max-width: 447px) {
     font-size: 18px;
   }
 }

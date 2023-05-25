@@ -20,15 +20,12 @@
   a {
     display: flex;
     justify-content: center;
-    width: 546px;
+    width: 641px;
 
-    @media (max-width: 590px) {
+    @media (max-width: 708px) {
       justify-content: center;
       row-gap: 10px;
       flex-wrap: wrap;
-    }
-
-    @media (max-width: 545px) {
       width: 100%;
     }
   }
@@ -44,7 +41,7 @@
   .github-link {
     justify-content: left;
 
-    @media (max-width: 590px) {
+    @media (max-width: 708px) {
       justify-content: center;
     }
   }
