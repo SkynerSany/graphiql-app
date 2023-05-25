@@ -6,16 +6,18 @@
   height: calc(100vh - 160px);
 
   a {
-    cursor: pointer;
     text-decoration: underline;
+
+    cursor: pointer;
   }
 }
 
 .login__container {
   display: flex;
   flex-direction: column;
-  text-align: center;
   padding: 30px;
+
+  text-align: center;
 
   background: radial-gradient(
     118.88% 606.86% at 0% 0%,
@@ -30,6 +32,7 @@
 .login__textBox {
   width: 100%;
   padding: 10px;
+
   font-size: 18px;
 }
 
@@ -40,8 +43,4 @@
   font-size: 18px;
 
   box-shadow: 5px 5px 10px #ebf2ea, -5px -5px 10px #ebf2ea;
-}
-
-.login__google {
-  background-color: #4285f4;
 }

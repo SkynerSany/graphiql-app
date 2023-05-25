@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   list-style-type: none;
 
   font-size: 25px;
@@ -17,19 +18,21 @@
     display: flex;
     align-items: center;
     gap: 10px;
+
     cursor: pointer;
   }
 }
 
 .documentation__prevButton {
-  height: 40px;
   width: 100px;
+  height: 40px;
 }
 
 .documentation__path {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  
   list-style-type: none;
 
   font-size: 20px;
