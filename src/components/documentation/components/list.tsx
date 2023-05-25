@@ -3,6 +3,7 @@ import { v1 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { updateNode } from '../../../store/reducers';
 import { IListProps, INode } from '../documentation.interfaces';
+import MyButton from '../../myButton/myButton';
 
 export default function List({ curentNode, path, setPath, type }: IListProps): JSX.Element {
   const dispatch = useDispatch();
@@ -39,9 +40,11 @@ export default function List({ curentNode, path, setPath, type }: IListProps): J
                 fieldName={fieldName}
                 checked={curentNode[type]![fieldName].checked}
               /> */}
-              <button onClick={() => nextField(fieldName)}>{`${fieldName}: ${
-                curentNode[type]![fieldName].type
-              }`}</button>
+              <MyButton
+                content={`${fieldName}: ${curentNode[type]![fieldName].type}`}
+                className={''}
+                event={() => nextField(fieldName)}
+              />
             </li>
           );
         })}

@@ -19,13 +19,14 @@ export default function Welcome() {
           <div className="welcome-page__content">
             <div className="welcome-page__content_item">
               <h2>{t('info.developers.title')}</h2>
-              <div>
+              <p>
                 <a href="https://github.com/SkynerSany" className="github-link">
                   SkynerSany
                 </a>{' '}
-                - <span className="f-green f-bold">{t('info.developers.team-leader')}</span>
-                <p className="h-mb20">{t('info.developers.developer_1')}</p>
-              </div>
+                -{' '}
+                <span className="f-green f-bold f-shadow">{t('info.developers.team-leader')}</span>
+              </p>
+              <p className="h-mb20">{t('info.developers.developer_1')}</p>
               <p className="h-mb20"></p>
               <p>
                 <a href="https://github.com/YuliyaBondar" className="github-link">
@@ -43,7 +44,7 @@ export default function Welcome() {
                 <a href="https://github.com/AmidaWolf/AmidaWolf" className="github-link">
                   AmidaWolf
                 </a>{' '}
-                - <span className="f-green f-bold">{t('info.developers.mentor')}</span>
+                - <span className="f-green f-bold f-shadow">{t('info.developers.mentor')}</span>
               </p>
               <p>{t('info.developers.developer_4')}</p>
             </div>

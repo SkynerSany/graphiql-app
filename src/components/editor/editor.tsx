@@ -1,6 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import './editor.scss';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import js_beautify from 'js-beautify';
+import AceEditor from 'react-ace';
+import 'ace-builds/src-noconflict/mode-json';
+import 'ace-builds/src-noconflict/theme-kuroir';
+
 import {
   closeResponseAlarm,
   openHeadersAlarm,
@@ -8,13 +13,10 @@ import {
   openVariablesAlarm,
   setResponse,
 } from '../../store/reducers';
-import { useDispatch, useSelector } from 'react-redux';
-import js_beautify from 'js-beautify';
-import AceEditor from 'react-ace';
-
-import 'ace-builds/src-noconflict/mode-json';
-import 'ace-builds/src-noconflict/theme-kuroir';
 import { RootState } from '../../store/store';
+import MyButton from '../myButton/myButton';
+
+import './editor.scss';
 
 interface IQueryObj {
   query: string;
@@ -95,7 +97,7 @@ export default function Editor() {
             <p style={{ fontSize: '12px', color: 'red' }}>{t('page.editor.checkData')}</p>
           )}
         </div>
-        <button onClick={() => getResponse()}>{t('page.editor.send')}</button>
+        <MyButton content={t('page.editor.send')} className={'h-mb20'} event={getResponse} />
       </div>
       <AceEditor
         placeholder={t('page.editor.response_placeholder')}

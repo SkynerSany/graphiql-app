@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { auth, logInWithEmailAndPassword } from '../../authentication/firebase';
 import { RootState } from '../../store/store';
 import { ModalAlert } from '../../components/modalAlert/ModalAlert';
+import MyButton from '../../components/myButton/myButton';
 
 import './login.scss';
 
@@ -82,9 +83,7 @@ function Login() {
             )}
           </div>
 
-          <button className="login__btn" type="submit">
-            {t('page.login.login')}
-          </button>
+          <MyButton content={t('page.login.login')} className={'login__btn'} type={'submit'} />
         </form>
 
         <div>

@@ -7,6 +7,7 @@ import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-kuroir';
 import { closeVariablesAlarm, setVariables } from '../../store/reducers';
 import { RootState } from '../../store/store';
+import MyButton from '../myButton/myButton';
 
 import './variables.scss';
 
@@ -35,13 +36,7 @@ export default function Variables() {
           <p style={{ fontSize: '12px', color: 'red' }}>{t('variables.alarm')}</p>
         )}
       </div>
-      <button
-        onClick={() => {
-          getVariables();
-        }}
-      >
-        {t('variables.addVariables')}
-      </button>
+      <MyButton content={t('variables.addVariables')} className={'h-mb20'} event={getVariables} />
       <AceEditor
         placeholder={t('variables.placeholder')}
         mode="json"
