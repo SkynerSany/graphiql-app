@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { offRedirect } from '../../store/reducers';
+import Graphiql from '../../assets/graphiql.png';
+import RSSLogo from '../../assets/logo-rs.svg';
 
 import './welcome.scss';
 
@@ -50,11 +52,13 @@ export default function Welcome() {
             </div>
             <div className="welcome-page__content_item">
               <h2>{t('info.project.title')}</h2>
-              <p>{t('info.project.text')}</p>
+              <p className="h-mb20">{t('info.project.text')}</p>
+              <img src={Graphiql} alt="Graphiql" className="h-m0auto" />
             </div>
             <div className="welcome-page__content_item">
               <h2>{t('info.course.title')}</h2>
-              <p>{t('info.course.text')}</p>
+              <p className="h-mb20">{t('info.course.text')}</p>
+              <img src={RSSLogo} alt="Graphiql" className="h-m0auto" width="400" />
             </div>
           </div>
         </div>

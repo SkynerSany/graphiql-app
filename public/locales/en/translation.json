@@ -71,7 +71,7 @@
     },
     "project": {
       "title": "General information about the project",
-      "text": "GraphiQL is a playground/IDE for graphQL requests."
+      "text": "GraphiQL is a playground/IDE for graphQL requests. GraphiQL is an open-source tool. App also includes authorization/authentication capabilities, to give access to the tool to only to authorized users."
     },
     "course": {
       "title": "General information about the course",

@@ -115,7 +115,7 @@ h2 {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    
+
     background-color: #ffffff;
   }
 
@@ -146,6 +146,10 @@ h2 {
 
 .h-mb20 {
   margin-bottom: 20px;
+}
+
+.h-m0auto {
+  margin: 0 auto;
 }
 
 .f-green {
