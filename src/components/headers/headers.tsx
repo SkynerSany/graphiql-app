@@ -7,6 +7,7 @@ import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-kuroir';
 import { closeHeadersAlarm, setHeadersStore } from '../../store/reducers';
 import { RootState } from '../../store/store';
+import MyButton from '../myButton/myButton';
 
 import './headers.scss';
 
@@ -35,13 +36,7 @@ export default function Headers() {
           <p style={{ fontSize: '12px', color: 'red' }}>{t('headers.alarm')}</p>
         )}
       </div>
-      <button
-        onClick={() => {
-          getHeaders();
-        }}
-      >
-        {t('headers.addHeaders')}
-      </button>
+      <MyButton content={t('headers.addHeaders')} className={'h-mb20'} event={getHeaders} />
       <AceEditor
         placeholder={t('headers.placeholder')}
         mode="json"

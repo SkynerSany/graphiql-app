@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-kuroir';
+
 import { RootState } from '../../store/store';
 import { setResponse } from '../../store/reducers';
+import MyButton from '../myButton/myButton';
 
 import './response.scss';
 
@@ -22,13 +24,7 @@ export default function Response() {
         <div style={{ height: '1rem' }}>
           {true && <p style={{ fontSize: '12px', color: 'red' }}>{}</p>}
         </div>
-        <button
-          onClick={() => {
-            clear();
-          }}
-        >
-          {t('response.clear')}
-        </button>
+        <MyButton content={t('response.clear')} className={'h-mb20'} event={clear} />
       </div>
       <AceEditor
         placeholder={t('response.placeholder')}

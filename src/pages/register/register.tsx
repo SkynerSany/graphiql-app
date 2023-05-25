@@ -7,6 +7,7 @@ import { registerWithEmailAndPassword } from '../../authentication/firebase';
 import { ModalAlert } from '../../components/modalAlert/ModalAlert';
 import { RootState } from '../../store/store';
 import { useIsAuthorized } from '../../hooks/useIsAuthorized';
+import MyButton from '../../components/myButton/myButton';
 
 import './register.scss';
 
@@ -100,9 +101,11 @@ function Register() {
                 <p className="input-error__text">{String(errors?.password?.message)}</p>
               )}
             </div>
-            <button className="register__btn" type="submit">
-              {t('page.register.register')}
-            </button>
+            <MyButton
+              content={t('page.register.register')}
+              className={'register__btn'}
+              type={'submit'}
+            />
           </form>
 
           <div>
