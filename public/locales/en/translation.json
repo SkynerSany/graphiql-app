@@ -61,13 +61,21 @@
   },
   "info": {
     "developers": {
-      "title": "General information about the developers"
+      "title": "General information about the developers",
+      "team-leader": "team leader",
+      "mentor": "mentor",
+      "developer_1": "I can work with pure JavaScript and with React. I am currently learning TypeScript and Redux. More than 10 pet-projects have already accumulated, among them there are one-page and multi-page sites with functionality (film collection, weather forecast, todo list, Gem Puzzle) and simple layout. Almost all designs are adaptive. I am considering any offers for an internship or employment as a Frontend developer.",
+      "developer_2": "I have successfully completed The RS School JavaScript/Front-end 2021Q3 course and 2022Q3. I have high score. I have team project  development experience and portfolio of my own projects. I enjoy working in team and learning new technologies.",
+      "developer_3": "I have been in business for a long time. And I have knowledge in accounting, taxation, distribution. Since March 2022, I quit my job and started my studies at RSS school. I have successfully completed the JS/FE Pre-School 2022Q2 course. My rating is 350 of 11247. I am currently a student of React course. I want to get knowledge and skills that will be enough for employment in a IT company.",
+      "developer_4": "Start programming in 2019 after studying at RSSchool (JS+React). Worked as a freelance web developer within a team of backend developer, designer and team leader. In 2022, I upgraded my skills at RS School (JavaScript/TypeScript, React v18+). Total experience 3 years. In high priority, looking for a full-time remote work. English level: A2+."
     },
     "project": {
-      "title": "General information about the project"
+      "title": "General information about the project",
+      "text": "GraphiQL is a playground/IDE for graphQL requests."
     },
     "course": {
-      "title": "General information about the course"
+      "title": "General information about the course",
+      "text": "The RS School is working by the principle of «Pay it forward.» Members of our community share their knowledge and check students&#39; tasks for free. And we hope our students will continue this work as our mentors in the future. Everyone can study at RS School, regardless of age, professional employment, or place of residence. However, you should have sufficient base knowledge before the program begins."
     }
   },
   "footer": "App developers",
