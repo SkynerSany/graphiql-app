@@ -2,16 +2,15 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: #213547;
-  background-color: #ffffff;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  background-color: #ffffff;
 }
 
 *,
@@ -64,8 +63,8 @@ a:hover {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 body {
@@ -97,40 +96,41 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
+
+  border-right: 4px solid #000000;
+
+  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-button,
-.header__btn {
-  padding: 10px 20px;
+@keyframes cursor {
+  0%,
+  100% {
+    border-color: transparent;
+  }
 
-  font-size: 16px;
-  font-weight: 500;
-  font-family: inherit;
-  color: #ffffff;
-
-  background-color: #0abda0;
-  border-radius: 8px;
-  border: 1px solid transparent;
-
-  cursor: pointer;
-
-  transition: all 0.25s ease-in-out;
+  50% {
+    border-color: #000000;
+  }
 }
 
-button:hover,
-.header__btn:hover {
-  background-color: #6088af;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto #6088af;
-}
-
-button:disabled {
-  opacity: 0.5;
-
-  pointer-events: none;
+@keyframes typing {
+  0% {
+    width: 0ch;
+  }
+  30% {
+    width: 20ch;
+  }
+  80% {
+    width: 20ch;
+  }
+  90% {
+    width: 0ch;
+  }
+  100% {
+    width: 0ch;
+  }
 }
 
 h2 {
@@ -150,6 +150,7 @@ h2 {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
+
     background-color: #ffffff;
   }
 
@@ -180,6 +181,10 @@ h2 {
 
 .h-mb20 {
   margin-bottom: 20px;
+}
+
+.h-m0auto {
+  margin: 0 auto;
 }
 
 .f-green {

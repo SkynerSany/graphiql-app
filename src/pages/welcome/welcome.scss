@@ -1,6 +1,10 @@
 .wrapper_center {
   width: 100%;
   padding: 40px;
+
+  @media (max-width: 428px) {
+    padding: 40px 0;
+  }
 }
 
 .welcome-page {
@@ -27,4 +31,34 @@
   backdrop-filter: blur(31px);
   border: 3px solid #d4dca9;
   border-radius: 30px;
+
+  @media (max-width: 1156px) {
+    width: 48%;
+  }
+
+  @media (max-width: 751px) {
+    width: 100%;
+  }
+}
+
+.logo_graphiql {
+  margin: 0 auto;
+  animation: 3s linear 0s normal none infinite running logo_graphiql;
+  -webkit-animation: 3s linear 0s normal none infinite running logo_graphiql;
+}
+@keyframes logo_graphiql {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes logo_graphiql {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

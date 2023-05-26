@@ -6,36 +6,51 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 18px;
 
   background-color: #d4dca9;
   border-bottom: 1px solid #bf9d7a;
 
   transition: all 0.2s ease-in-out;
+
+  @media (max-width: 342px) {
+    padding: 18px 6px;
+  }
 }
 
 .header_sticky {
-  padding: 15px 20px;
+  padding: 15px 18px;
 
   background-color: #a8cff3;
+
+  @media (max-width: 342px) {
+    padding: 15px 6px;
+  }
 }
 
 .header__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   width: 95%;
-  height: 43px;
+
+  @media (max-width: 764px) {
+    flex-direction: column;
+  }
 }
+
 .header__buttons {
   text-align: end;
 }
+
 .header__btn {
   margin-left: 5px;
   padding: 6px;
+
+  color: #ffffff;
+
   border: none;
-  color: white;
-  background-color: #4285f4;
 }
 
 .header__btn:hover {
@@ -46,9 +61,13 @@
   display: flex;
   gap: 20px;
 
-  width: 389px;
-
   font-size: 20px;
+
+  @media (max-width: 410px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 .menu__link {
@@ -56,10 +75,35 @@
     font-weight: 700;
     color: #8b6b4c;
   }
+
+  @media (max-width: 447px) {
+    font-size: 18px;
+  }
 }
 
 .sign-out {
   position: absolute;
   right: 30px;
   top: 10px;
+}
+
+.header__btn {
+  padding: 10px 20px;
+
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  color: #ffffff;
+
+  background-color: #0abda0;
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.header__btn:hover {
+  background-color: #6088af;
 }
