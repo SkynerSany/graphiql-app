@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: burlywood;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.header__buttons {
+  width: 185px;
+  text-align: end;
+}
+
+.header__btn {
+  margin-left: 5px;
+  padding: 6px;
+  border: none;
+  color: white;
+  background-color: #4285f4;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  width: 355px;
+  font-size: 20px;
+}
+
+.menu__link.active {
+  color: orange;
+}

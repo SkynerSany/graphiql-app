@@ -1,0 +1,48 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+
+  font-size: 18px;
+
+  background-color: #80add7;
+  border-top: 1px solid #6088af;
+
+  @media (max-width: 840px) {
+    justify-content: center;
+    row-gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  p,
+  a {
+    display: flex;
+    justify-content: center;
+    width: 641px;
+
+    @media (max-width: 708px) {
+      justify-content: center;
+      row-gap: 10px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+
+  a {
+    justify-content: right;
+
+    @media (max-width: 840px) {
+      justify-content: center;
+    }
+  }
+
+  .github-link {
+    justify-content: left;
+
+    @media (max-width: 708px) {
+      justify-content: center;
+    }
+  }
+}

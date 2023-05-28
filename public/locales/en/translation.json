@@ -1,0 +1,103 @@
+{
+  "welcome": "Welcome",
+  "login": "Sing In",
+  "logout": "Sing Out",
+  "error": "404",
+  "editor": "Editor",
+  "register": "Sing Up",
+  "main": "Go to Main Page",
+  "page": {
+    "welcome": {
+      "title": "Welcome page"
+    },
+    "editor": {
+      "title": "Editor",
+      "response_placeholder": "Write your request",
+      "send": "Send",
+      "checkData": "Wrong request",
+      "wrongData": "Wrong JSON data of headers or variables"
+    },
+    "error": {
+      "title": "404 page"
+    },
+    "login": {
+      "login": "Login",
+      "forgot": "Forgot Password",
+      "haveAccount": "Don't have an account?",
+      "mail": "E-mail Address",
+      "password": "Password",
+      "register": "Register",
+      "now": "now",
+      "checkData": "There is no such user in our database.",
+      "minLength3": "Minimum input length 3 characters",
+      "minLength5": "Minimum input length 5 characters",
+      "minLength8": "Minimum input length 8 characters",
+      "maxLength10": "Maximum input length 10 characters",
+      "maxLength20": "Maximum input length 20 characters",
+      "startCapitalLetter": "Please start with a capital letter",
+      "fieldRequired": "The field is required",
+      "incorrectEmail": "Incorrect email",
+      "atLeast": "At least 1 letter, 1 number, 1 special symbol"
+    },
+    "register": {
+      "mail": "E-mail Address",
+      "name": "Name",
+      "password": "Password",
+      "register": "Register",
+      "haveAccount": "Already have an account?",
+      "now": "now",
+      "login": "Login",
+      "checkData": "Perhaps the entered email is already in our database",
+      "minLength3": "Minimum input length 3 characters",
+      "minLength5": "Minimum input length 5 characters",
+      "minLength8": "Minimum input length 8 characters",
+      "maxLength10": "Maximum input length 10 characters",
+      "maxLength20": "Maximum input length 20 characters",
+      "startCapitalLetter": "Please start with a capital letter",
+      "fieldRequired": "The field is required",
+      "incorrectEmail": "Incorrect email",
+      "atLeast": "At least 1 letter, 1 number, 1 special symbol"
+    }
+  },
+  "info": {
+    "developers": {
+      "title": "General information about the developers",
+      "team-leader": "team leader",
+      "mentor": "mentor",
+      "developer_1": "I can work with pure JavaScript and with React. I am currently learning TypeScript and Redux. More than 10 pet-projects have already accumulated, among them there are one-page and multi-page sites with functionality (film collection, weather forecast, todo list, Gem Puzzle) and simple layout. Almost all designs are adaptive. I am considering any offers for an internship or employment as a Frontend developer.",
+      "developer_2": "I have successfully completed The RS School JavaScript/Front-end 2021Q3 course and 2022Q3. I have high score. I have team project  development experience and portfolio of my own projects. I enjoy working in team and learning new technologies.",
+      "developer_3": "I have been in business for a long time. And I have knowledge in accounting, taxation, distribution. Since March 2022, I quit my job and started my studies at RSS school. I have successfully completed the JS/FE Pre-School 2022Q2 course. My rating is 350 of 11247. I am currently a student of React course. I want to get knowledge and skills that will be enough for employment in a IT company.",
+      "developer_4": "Start programming in 2019 after studying at RSSchool (JS+React). Worked as a freelance web developer within a team of backend developer, designer and team leader. In 2022, I upgraded my skills at RS School (JavaScript/TypeScript, React v18+). Total experience 3 years. In high priority, looking for a full-time remote work. English level: A2+."
+    },
+    "project": {
+      "title": "General information about the project",
+      "text": "GraphiQL is a playground/IDE for graphQL requests. GraphiQL is an open-source tool. App also includes authorization/authentication capabilities, to give access to the tool to only to authorized users."
+    },
+    "course": {
+      "title": "General information about the course",
+      "text": "The RS School is working by the principle of «Pay it forward.» Members of our community share their knowledge and check students&#39; tasks for free. And we hope our students will continue this work as our mentors in the future. Everyone can study at RS School, regardless of age, professional employment, or place of residence. However, you should have sufficient base knowledge before the program begins."
+    }
+  },
+  "footer": "App developers",
+  "documentation": {
+    "title": "Documentation"
+  },
+  "headers": {
+    "title": "Headers",
+    "placeholder": "Enter JSON",
+    "addHeaders": "Add",
+    "alarm": "Wrong headers JSON data"
+  },
+  "response": {
+    "title": "Response",
+    "placeholder": "Here is the answer to your request!",
+    "clear": "Clear"
+  },
+  "variables": {
+    "title": "Variables",
+    "close": "Сlose",
+    "placeholder": "Enter JSON",
+    "addVariables": "Add",
+    "alarm": "Wrong variables JSON data"
+  }
+}
