@@ -30,7 +30,6 @@ const logInWithEmailAndPassword = async (email: string, password: string) => {
     store.dispatch(openErrorModal());
     setTimeout(() => store.dispatch(onRedirect()), 2000);
 
-    // alert(text.wrongData);
     if (err instanceof Error) console.log(err.message);
   }
 };
@@ -48,7 +47,6 @@ const registerWithEmailAndPassword = async (name: string, email: string, passwor
   } catch (err) {
     store.dispatch(openErrorModal());
 
-    // alert(text.wrongData);
     if (err instanceof Error) console.log(err.message);
   }
 };

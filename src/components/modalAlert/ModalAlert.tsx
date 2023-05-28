@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ModalAlert.scss';
 import { useDispatch } from 'react-redux';
 import { closeErrorModal } from '../../store/reducers';
