@@ -85,7 +85,7 @@
   "headers": {
     "title": "Хедеры",
     "placeholder": "Введите JSON",
-    "addHeaders": "Добавить Хедеры",
+    "addHeaders": "Добавить",
     "alarm": "Неверные JSON данные заголовков"
   },
   "response": {
@@ -97,7 +97,7 @@
     "title": "Переменные",
     "close": "Закрыть",
     "placeholder": "Введите JSON",
-    "addVariables": "Добавить переменные",
+    "addVariables": "Добавить",
     "alarm": "Неверные JSON данные переменных"
   }
 }
