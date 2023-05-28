@@ -49,13 +49,11 @@ export default function Editor() {
     queryObj.variables = JSON.parse(variablesString);
   } catch (err) {
     dispatch(openVariablesAlarm());
-    // if (err instanceof Error) console.log('queryObjError=', err.message);
   }
   try {
     queryObj.headers = JSON.parse(headersString);
   } catch (err) {
     dispatch(openHeadersAlarm());
-    // if (err instanceof Error) console.log('queryObjError=', err.message);
   }
 
   function getResponse() {
@@ -63,14 +61,11 @@ export default function Editor() {
     const url = 'https://rickandmortyapi.com/graphql';
 
     const makeRequest = async ({ query, variables, headers }: IQueryObj) => {
-      // console.log('query/var=', query, '=', variables, '=', headers);
-
       return fetch(url, {
         method: 'POST',
         headers: headers,
         body: JSON.stringify({ query, variables }),
       }).then((res) => {
-        // console.log('responseStatus=', res.status, 'responseOK=', res.ok);
         if (res.ok) {
           return res.json();
         } else {

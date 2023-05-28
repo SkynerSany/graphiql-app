@@ -1,5 +1,4 @@
 import { v1 } from 'uuid';
-// import Input from './input';
 import { useDispatch } from 'react-redux';
 import { updateNode } from '../../../store/reducers';
 import { IListProps, INode } from '../documentation.interfaces';
@@ -23,11 +22,6 @@ export default function List({ curentNode, path, setPath, type }: IListProps): J
     dispatch(updateNode(curentNode[type]![fieldName].node as INode));
   }
 
-  // function updateField(e: React.ChangeEvent<HTMLInputElement>, fieldName: string): void {
-  //   curentNode[type]![fieldName].checked = e.target.checked;
-  //   dispatch(updateNode(curentNode));
-  // }
-
   return (
     <>
       <h3>{type}</h3>
@@ -35,11 +29,6 @@ export default function List({ curentNode, path, setPath, type }: IListProps): J
         {Object.keys(curentNode[type] || []).map((fieldName) => {
           return (
             <li key={v1()}>
-              {/* <Input
-                updateField={updateField}
-                fieldName={fieldName}
-                checked={curentNode[type]![fieldName].checked}
-              /> */}
               <MyButton
                 content={`${fieldName}: ${curentNode[type]![fieldName].type}`}
                 className={''}
