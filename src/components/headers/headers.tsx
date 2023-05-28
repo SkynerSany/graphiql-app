@@ -35,35 +35,35 @@ export default function Headers() {
 
   return (
     <section className="headers">
+      <MyButton content={toggle ? 'X' : 'V'} className={'close'} event={handleClick} />
       <h3>{t('headers.title')}</h3>
       <div style={{ height: '1rem' }}>
         {isOpenHeadersAlarm && (
           <p style={{ fontSize: '12px', color: 'red' }}>{t('headers.alarm')}</p>
         )}
       </div>
-      <MyButton content={t('headers.addHeaders')} className={'h-mb20'} event={getHeaders} />
-      <div className="close__container">
-        <MyButton content={'X'} className={'close'} event={handleClick} />
-      </div>
       {toggle && (
-        <AceEditor
-          placeholder={t('headers.placeholder')}
-          mode="json"
-          theme="kuroir"
-          name="headers"
-          onChange={onChange}
-          fontSize={14}
-          showPrintMargin={true}
-          showGutter={true}
-          highlightActiveLine={true}
-          value={headers}
-          setOptions={{
-            showLineNumbers: true,
-            tabSize: 2,
-            useWorker: false,
-          }}
-          style={{ width: 'auto' }}
-        />
+        <>
+          <MyButton content={t('headers.addHeaders')} className={'h-mb20'} event={getHeaders} />
+          <AceEditor
+            placeholder={t('headers.placeholder')}
+            mode="json"
+            theme="kuroir"
+            name="headers"
+            onChange={onChange}
+            fontSize={14}
+            showPrintMargin={true}
+            showGutter={true}
+            highlightActiveLine={true}
+            value={headers}
+            setOptions={{
+              showLineNumbers: true,
+              tabSize: 2,
+              useWorker: false,
+            }}
+            style={{ width: 'auto' }}
+          />
+        </>
       )}
     </section>
   );

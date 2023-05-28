@@ -4,6 +4,12 @@
   height: 100%;
 }
 
-.close__container {
+.close {
   float: right;
+  width: 43px;
+  padding: 10px;
+
+  background-color: rgba(10, 189, 160, 0.5);
+  border: 1px solid #0abda0;
+  border-radius: 50%;
 }
