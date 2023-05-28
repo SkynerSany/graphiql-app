@@ -18,14 +18,14 @@
 
     @media (max-width: 1879px) {
       grid-template-columns: 280px 1fr 1fr;
-      grid-template-areas: 
+      grid-template-areas:
         'documentation headers variables'
         '. editor response';
     }
 
     @media (max-width: 1224px) {
       grid-template-columns: 280px 1fr;
-      grid-template-areas: 
+      grid-template-areas:
         'documentation headers'
         '. variables'
         '. editor'
@@ -34,7 +34,7 @@
 
     @media (max-width: 799px) {
       grid-template-columns: 1fr;
-      grid-template-areas: 
+      grid-template-areas:
         'documentation'
         'headers'
         'variables'
