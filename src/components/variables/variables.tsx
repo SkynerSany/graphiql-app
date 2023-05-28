@@ -35,35 +35,39 @@ export default function Variables() {
 
   return (
     <section className="variables">
+      <MyButton content={toggle ? 'X' : 'V'} className={'close'} event={handleClick} />
       <h3>{t('variables.title')}</h3>
       <div style={{ height: '1rem' }}>
         {isOpenVariablesAlarm && (
           <p style={{ fontSize: '12px', color: 'red' }}>{t('variables.alarm')}</p>
         )}
       </div>
-      <MyButton content={t('variables.addVariables')} className={'h-mb20'} event={getVariables} />
-      <div className="close__container">
-        <MyButton content={'X'} className={'close'} event={handleClick} />
-      </div>
       {toggle && (
-        <AceEditor
-          placeholder={t('variables.placeholder')}
-          mode="json"
-          theme="kuroir"
-          name="variables"
-          onChange={onChange}
-          fontSize={14}
-          showPrintMargin={true}
-          showGutter={true}
-          highlightActiveLine={true}
-          value={variable}
-          setOptions={{
-            showLineNumbers: true,
-            tabSize: 2,
-            useWorker: false,
-          }}
-          style={{ width: 'auto' }}
-        />
+        <>
+          <MyButton
+            content={t('variables.addVariables')}
+            className={'h-mb20'}
+            event={getVariables}
+          />
+          <AceEditor
+            placeholder={t('variables.placeholder')}
+            mode="json"
+            theme="kuroir"
+            name="variables"
+            onChange={onChange}
+            fontSize={14}
+            showPrintMargin={true}
+            showGutter={true}
+            highlightActiveLine={true}
+            value={variable}
+            setOptions={{
+              showLineNumbers: true,
+              tabSize: 2,
+              useWorker: false,
+            }}
+            style={{ width: 'auto' }}
+          />
+        </>
       )}
     </section>
   );
