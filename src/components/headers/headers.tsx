@@ -18,6 +18,7 @@ export default function Headers() {
   const [headers, setHeaders] = useState(
     js_beautify(`{"Content-type": "application/json"}`, { indent_size: 2 })
   );
+  const [toggle, setToggle] = useState(true);
 
   function getHeaders() {
     dispatch(setHeadersStore(headers));
@@ -26,6 +27,10 @@ export default function Headers() {
   function onChange(newValue: string) {
     setHeaders(newValue);
     dispatch(closeHeadersAlarm());
+  }
+
+  function handleClick() {
+    setToggle(!toggle);
   }
 
   return (
@@ -37,24 +42,29 @@ export default function Headers() {
         )}
       </div>
       <MyButton content={t('headers.addHeaders')} className={'h-mb20'} event={getHeaders} />
-      <AceEditor
-        placeholder={t('headers.placeholder')}
-        mode="json"
-        theme="kuroir"
-        name="headers"
-        onChange={onChange}
-        fontSize={14}
-        showPrintMargin={true}
-        showGutter={true}
-        highlightActiveLine={true}
-        value={headers}
-        setOptions={{
-          showLineNumbers: true,
-          tabSize: 2,
-          useWorker: false,
-        }}
-        style={{ width: 'auto' }}
-      />
+      <div className="close__container">
+        <MyButton content={'X'} className={'close'} event={handleClick} />
+      </div>
+      {toggle && (
+        <AceEditor
+          placeholder={t('headers.placeholder')}
+          mode="json"
+          theme="kuroir"
+          name="headers"
+          onChange={onChange}
+          fontSize={14}
+          showPrintMargin={true}
+          showGutter={true}
+          highlightActiveLine={true}
+          value={headers}
+          setOptions={{
+            showLineNumbers: true,
+            tabSize: 2,
+            useWorker: false,
+          }}
+          style={{ width: 'auto' }}
+        />
+      )}
     </section>
   );
 }
