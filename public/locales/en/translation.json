@@ -85,7 +85,7 @@
   "headers": {
     "title": "Headers",
     "placeholder": "Enter JSON",
-    "addHeaders": "Add headers",
+    "addHeaders": "Add",
     "alarm": "Wrong headers JSON data"
   },
   "response": {
@@ -97,7 +97,7 @@
     "title": "Variables",
     "close": "Сlose",
     "placeholder": "Enter JSON",
-    "addVariables": "Add variables",
+    "addVariables": "Add",
     "alarm": "Wrong variables JSON data"
   }
 }
