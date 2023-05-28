@@ -42,21 +42,6 @@ export default function Header() {
           <NavLink to="/" className="menu__link">
             {t('welcome')}
           </NavLink>
-          {!user && (
-            <NavLink to="/login" className="menu__link">
-              {t('login')}
-            </NavLink>
-          )}
-          {!user && (
-            <NavLink to="/register" className="menu__link">
-              {t('register')}
-            </NavLink>
-          )}
-          {user && (
-            <NavLink to="/editor" className="menu__link">
-              {t('main')}
-            </NavLink>
-          )}
         </div>
 
         <div className="header__buttons">

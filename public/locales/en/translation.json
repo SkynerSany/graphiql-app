@@ -1,11 +1,11 @@
 {
   "welcome": "Welcome",
   "login": "Sing In",
-  "logout": "Logout",
+  "logout": "Sing Out",
   "error": "404",
   "editor": "Editor",
   "register": "Sing Up",
-  "main": "Main",
+  "main": "Go to Main Page",
   "page": {
     "welcome": {
       "title": "Welcome page"
