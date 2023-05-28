@@ -18,6 +18,7 @@ export default function Variables() {
   const [variable, setVariable] = useState(
     js_beautify(`{"status": "dead", "name": "rick"}`, { indent_size: 2 })
   );
+  const [toggle, setToggle] = useState(true);
 
   function getVariables() {
     dispatch(setVariables(variable));
@@ -26,6 +27,10 @@ export default function Variables() {
   function onChange(newValue: string) {
     dispatch(closeVariablesAlarm());
     setVariable(newValue);
+  }
+
+  function handleClick() {
+    setToggle(!toggle);
   }
 
   return (
@@ -37,24 +42,29 @@ export default function Variables() {
         )}
       </div>
       <MyButton content={t('variables.addVariables')} className={'h-mb20'} event={getVariables} />
-      <AceEditor
-        placeholder={t('variables.placeholder')}
-        mode="json"
-        theme="kuroir"
-        name="variables"
-        onChange={onChange}
-        fontSize={14}
-        showPrintMargin={true}
-        showGutter={true}
-        highlightActiveLine={true}
-        value={variable}
-        setOptions={{
-          showLineNumbers: true,
-          tabSize: 2,
-          useWorker: false,
-        }}
-        style={{ width: 'auto' }}
-      />
+      <div className="close__container">
+        <MyButton content={'X'} className={'close'} event={handleClick} />
+      </div>
+      {toggle && (
+        <AceEditor
+          placeholder={t('variables.placeholder')}
+          mode="json"
+          theme="kuroir"
+          name="variables"
+          onChange={onChange}
+          fontSize={14}
+          showPrintMargin={true}
+          showGutter={true}
+          highlightActiveLine={true}
+          value={variable}
+          setOptions={{
+            showLineNumbers: true,
+            tabSize: 2,
+            useWorker: false,
+          }}
+          style={{ width: 'auto' }}
+        />
+      )}
     </section>
   );
 }
