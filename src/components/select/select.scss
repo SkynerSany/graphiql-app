@@ -1,0 +1,17 @@
+.form__input_select {
+  height: 43px;
+  margin-left: 5px;
+  padding: 5px 10px;
+
+  font-size: 16px;
+  color: #ffffff;
+
+  background-color: rgba(10, 189, 160, 0.5);
+  border: 1px solid #0abda0;
+  border-radius: 10px;
+}
+
+.form__input_select:focus,
+.form__input_select:focus-visible {
+  outline: 4px auto #0abda0;
+}

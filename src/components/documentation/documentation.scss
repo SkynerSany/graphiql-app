@@ -1,0 +1,59 @@
+.documentation {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  grid-area: documentation;
+}
+
+.documentation__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  list-style-type: none;
+
+  font-size: 25px;
+
+  @media (max-width: 799px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+  }
+}
+
+.documentation__prevButton {
+  width: 100px;
+  height: 40px;
+}
+
+.documentation__path {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  list-style-type: none;
+
+  font-size: 20px;
+
+  cursor: default;
+
+  div {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.documentation__path-link {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
